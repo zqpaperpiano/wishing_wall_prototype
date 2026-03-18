@@ -16,7 +16,10 @@
     --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
   body { background: #111110; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 2rem 1rem 4rem; font-family: var(--font); }
-  h1 { font-size: 12px; color: #555; letter-spacing: 0.06em; margin-bottom: 1.5rem; font-weight: 400; text-transform: uppercase; }
+  h1 { font-size: 12px; color: #555; letter-spacing: 0.06em; margin-bottom: 0.75rem; font-weight: 400; text-transform: uppercase; }
+  .lang-toggle { display: flex; gap: 0; border: 1px solid var(--b2); border-radius: 8px; overflow: hidden; margin-bottom: 1.25rem; }
+  .lang-btn { padding: 5px 16px; font-size: 12px; cursor: pointer; background: transparent; color: var(--t2); font-family: var(--font); border: none; }
+  .lang-btn.active { background: var(--b2); color: var(--t1); font-weight: 500; }
 
   /* ── Phone frame ── */
   .phone { width: 320px; border: 1.5px solid var(--b1); border-radius: 32px; overflow: hidden; background: var(--bg1); box-shadow: 0 12px 40px rgba(0,0,0,0.6); }
@@ -189,6 +192,10 @@
 </head>
 <body>
 <h1>许愿墙 · Interactive Prototype v2</h1>
+<div class="lang-toggle">
+  <div class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</div>
+  <div class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</div>
+</div>
 
 <div class="phone">
   <div class="phone-bar">
@@ -553,11 +560,14 @@ function openPlayerDetail(key,fromWishes){
   if(!d.live){
     document.getElementById('pd-vote-btns').style.display='none';document.getElementById('pd-result').style.display='block';
     document.getElementById('pd-voted-pill').textContent='Voting closed';document.getElementById('pd-voted-pill').className='voted-pill no';
+    var cl=document.querySelector('#screen-player-detail .add-comment-link');cl.className='add-comment-link disabled';cl.textContent='Discussion closed';cl.onclick=null;
   } else if(already){
     document.getElementById('pd-vote-btns').style.display='none';document.getElementById('pd-result').style.display='block';
     var pill=document.getElementById('pd-voted-pill');pill.textContent=already==='yes'?'You voted Yes':'You voted No';pill.className='voted-pill '+already;
+    var cl=document.querySelector('#screen-player-detail .add-comment-link');cl.className='add-comment-link enabled';cl.textContent='+ Add a comment';cl.onclick=function(){openCompose('player');};
   } else {
     document.getElementById('pd-vote-btns').style.display='block';document.getElementById('pd-result').style.display='none';
+    var cl=document.querySelector('#screen-player-detail .add-comment-link');cl.className='add-comment-link disabled';cl.textContent='Vote to join the discussion';cl.onclick=null;
   }
   showScreen('screen-player-detail');
 }
@@ -570,6 +580,7 @@ function votePoll(v){
   if(pdVoted)return;pdVoted=true;playerDetailVote=v;
   document.getElementById('pd-vote-btns').style.display='none';document.getElementById('pd-result').style.display='block';
   var pill=document.getElementById('pd-voted-pill');pill.textContent=v==='yes'?'You voted Yes':'You voted No';pill.className='voted-pill '+v;
+  var cl=document.querySelector('#screen-player-detail .add-comment-link');cl.className='add-comment-link enabled';cl.textContent='+ Add a comment';cl.onclick=function(){openCompose('player');};
 }
 
 /* Past questions */
@@ -710,6 +721,186 @@ function voteCustomPoll(e,pid,idx,total){
 function escHtml(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function updateChar(){document.getElementById('char-count').textContent=document.getElementById('c-input').value.length;}
 function selectTag(el,name){document.querySelectorAll('.tag-opt').forEach(function(t){t.classList.remove('selected');});el.classList.add('selected');selectedTag=name;}
+
+/* ── Language toggle ── */
+var currentLang='en';
+var T={
+  // Nav
+  'Discuss':          '讨论',
+  'Wishes':           '许愿',
+  // Discuss feed
+  'Week of 17 Mar':   '3月17日那周',
+  '+ Post a poll':    '+ 发起投票',
+  'COMMUNITY POLLS':  '社区投票',
+  // Official card
+  '✦ OFFICIAL · ICEBREAKER': '✦ 官方 · 破冰话题',
+  '5 days left · 1,243 voted': '剩余5天 · 1,243人已投票',
+  'After a bad beat, what do you usually do first?': '遭遇坏牌时，你通常第一件事是？',
+  'Vent to friends at the table':        '跟桌上的朋友吐槽',
+  'Take a short break, then come back':  '短暂休息，然后继续',
+  'Re-buy and go again immediately':     '立刻重新买入继续打',
+  'Close the app — done for the night':  '关掉App，今晚到此为止',
+  'Submit vote':      '提交投票',
+  'You chose: ':      '你选择了：',
+  'In your club, ':   '在你的俱乐部，',
+  ' picked the same': '选了一样的',
+  'See what others say ›': '看看大家怎么说 ›',
+  '6 out of 10 also': '10人中6人也',
+  '3 out of 10 also': '10人中3人也',
+  '2 out of 10 also': '10人中2人也',
+  '4 out of 10 also': '10人中4人也',
+  // Community poll cards
+  '🔥 LIVE · ends in 4 days': '🔥 进行中 · 4天后截止',
+  '🔥 LIVE · ends in 6 days': '🔥 进行中 · 6天后截止',
+  'Add hand history replay so players can review their sessions': '添加牌局回放功能，让玩家能复盘',
+  "Yes, I'd want this": '是，我想要',
+  'No thanks':         '不需要',
+  'You voted Yes':     '你投了：是',
+  'You voted No':      '你投了：否',
+  'Join the discussion ›': '加入讨论 ›',
+  'PokerKing88 · 142 voted': 'PokerKing88 · 142人已投',
+  '🔥 LIVE · just posted': '🔥 进行中 · 刚发布',
+  'Dark mode for late night sessions': '深色模式，适合深夜打牌',
+  'NightOwl · 98 voted': 'NightOwl · 98人已投',
+  'CLOSED · ended 3 days ago': '已结束 · 3天前',
+  'Better sound effects at the table': '更好的桌面音效',
+  'SoundGuy · 67 voted': 'SoundGuy · 67人已投',
+  'Closed': '已结束',
+  // Closed official cards
+  'CLOSED · 2 weeks ago': '已结束 · 2周前',
+  'CLOSED · 1 month ago': '已结束 · 1个月前',
+  'CLOSED · 6 weeks ago': '已结束 · 6周前',
+  '✦ OFFICIAL': '✦ 官方',
+  'Should we add a rebuy option to tournaments?': '锦标赛是否应增加重购选项？',
+  '2,341 voted': '2,341人已投',
+  'Would you use a dark mode?': '你会使用深色模式吗？',
+  '1,890 voted': '1,890人已投',
+  'Should turn timer be adjustable per club?': '操作计时器是否应支持俱乐部自定义？',
+  '1,654 voted': '1,654人已投',
+  // Past detail screen
+  '✦ OFFICIAL · CLOSED': '✦ 官方 · 已结束',
+  'DISCUSSION': '讨论',
+  // Player detail screen
+  '🔥 LIVE': '🔥 进行中',
+  'CLOSED': '已结束',
+  'Posted by PokerKing88 · 142 voted': 'PokerKing88 发布 · 142人已投',
+  'Posted by PokerKing88 · 98 voted':  'PokerKing88 发布 · 98人已投',
+  'Posted by PokerKing88 · 67 voted':  'PokerKing88 发布 · 67人已投',
+  'Voting closed': '投票已结束',
+  'COMMENTS': '评论',
+  // Official detail
+  '✦ OFFICIAL · ICEBREAKER': '✦ 官方 · 破冰话题',
+  'TOP COMMENTS': '精选评论',
+  'Vote to join the discussion': '先投票再参与讨论',
+  '+ Add a comment': '+ 发表评论',
+  'Discussion closed': '讨论已结束',
+  'Refreshes in 5 days': '5天后刷新',
+  // Comments
+  'AceHigh · Just now': 'AceHigh · 刚刚',
+  'RiverRat · 2h ago':  'RiverRat · 2小时前',
+  'PokerKing88 · 3h ago': 'PokerKing88 · 3小时前',
+  'AceHigh · 2h ago': 'AceHigh · 2小时前',
+  'RiverRat · 4h ago': 'RiverRat · 4小时前',
+  'ShortDeck · 1h ago': 'ShortDeck · 1小时前',
+  'FoldFold · 3h ago': 'FoldFold · 3小时前',
+  'Table banter after a bad beat is half the fun honestly': '坏牌之后桌上的吐槽，说真的也是乐趣的一半',
+  'Walk away every time. Tilt is real, don\'t fight it': '每次都选择离开。倾斜是真实的，别硬撑',
+  'You have to get it back the same session or it haunts you': '同一局里必须赢回来，否则会一直困扰你',
+  'Rebuys keep the game going longer — more fun for everyone': '重购让游戏持续更久——对大家都更好玩',
+  'Rebuys favour wealthier players. Keeps it fair without them': '重购对有钱的玩家更有利，没有会更公平',
+  'Even just the last 10 hands would help so much': '哪怕只回放最后10手牌也会很有帮助',
+  'This would slow the app down, not worth it': '这会让App变慢，不值得',
+  '[Yes]': '[赞成]',
+  '[No]':  '[反对]',
+  // Wishes tab
+  'Top': '热门', 'New': '最新', 'UI': '界面', 'Features': '功能', 'Mine': '我的',
+  'Add hand history replay so I can review my sessions': '添加牌局回放功能，方便我复盘',
+  '🔥 In discussion': '🔥 讨论中',
+  'PokerKing88': 'PokerKing88',
+  'Please give us a dark mode — late night games are brutal': '求深色模式——深夜打牌太伤眼',
+  'NightOwl': 'NightOwl',
+  'Push notification when it\'s my turn — I keep missing it': '轮到我出牌时推送通知——我总是错过',
+  '🎉 We built this!': '🎉 已上线！',
+  'SlowRoller': 'SlowRoller',
+  'Stats summary at end of each session — wins, losses, big pots': '每局结束后的数据汇总——赢输和大底池',
+  '👀 We saw this': '👀 已看到',
+  'DataDonkey': 'DataDonkey',
+  'Let us customise the table felt colour — green is boring': '让我们自定义桌布颜色——绿色太单调了',
+  'TableTuner': 'TableTuner',
+  'Join the discussion ›': '加入讨论 ›',
+  'You · 5 days ago': '你 · 5天前',
+  'You · 2 weeks ago': '你 · 2周前',
+  'Add a quick re-seat button after each game ends': '每局结束后增加一键重新入座按钮',
+  // Compose
+  'Post a wish': '发表愿望',
+  'Add a comment': '发表评论',
+  'e.g. I want hand history replay...': '例如：我想要牌局回放功能……',
+  'Share your take...': '说说你的想法……',
+  'Tag your wish': '给愿望打标签',
+  'Wishes that gain enough traction from the community may be featured as a community poll.': '获得足够多社区关注的愿望，可能会被推选为社区投票。',
+  'Cancel': '取消',
+  'Submit': '提交',
+  // Poll compose
+  'New poll': '新建投票',
+  'YOUR QUESTION': '你的问题',
+  'Ask the community something...': '问问社区……',
+  'OPTIONS': '选项',
+  '(2–4)': '（2–4个）',
+  'Option 1': '选项 1', 'Option 2': '选项 2', 'Option 3': '选项 3', 'Option 4': '选项 4',
+  '+ Add option ': '+ 添加选项 ',
+  '(up to 4)': '（最多4个）',
+  'Polls that get strong traction may be featured as an official question.': '获得广泛关注的投票可能会被选为官方问题。',
+  'Post poll': '发布投票',
+  // Misc
+  'Best viewed on mobile': '建议在手机端查看',
+  'You · Just now': '你 · 刚刚',
+  'New': '最新', 'Other': '其他',
+  // Back buttons
+  '‹ Back': '‹ 返回',
+  // Closed official card detail meta
+  'Closed · 2,341 players voted': '已结束 · 2,341人参与',
+  'Closed · 1,890 players voted': '已结束 · 1,890人参与',
+  'Closed · 1,654 players voted': '已结束 · 1,654人参与',
+};
+
+function setLang(lang){
+  currentLang=lang;
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  document.getElementById('btn-zh').classList.toggle('active',lang==='zh');
+  // Walk all text nodes and translate
+  translateNode(document.body,lang==='zh'?'zh':'en');
+  // Also update placeholders
+  translateAttrs(lang);
+}
+
+function translateNode(node,dir){
+  if(node.nodeType===3){
+    var t=node.textContent;
+    if(dir==='zh'){
+      for(var k in T){if(t.trim()===k){node.textContent=t.replace(k,T[k]);return;}}
+    } else {
+      for(var k in T){if(t.trim()===T[k]){node.textContent=t.replace(T[k],k);return;}}
+    }
+    return;
+  }
+  // Don't recurse into scripts/styles
+  if(node.nodeName==='SCRIPT'||node.nodeName==='STYLE')return;
+  node.childNodes.forEach(function(c){translateNode(c,dir);});
+}
+
+function translateAttrs(dir){
+  var placeholderMap={
+    'c-input':      dir==='zh'?'例如：我想要牌局回放功能……':'e.g. I want hand history replay...',
+    'poll-q-input': dir==='zh'?'问问社区……':'Ask the community something...',
+  };
+  for(var id in placeholderMap){
+    var el=document.getElementById(id);if(el)el.placeholder=placeholderMap[id];
+  }
+  // Option placeholders
+  document.querySelectorAll('.poll-opt-input').forEach(function(el,i){
+    el.placeholder=dir==='zh'?('选项 '+(i+1)):('Option '+(i+1));
+  });
+}
 </script>
 </body>
 </html>
