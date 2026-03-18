@@ -13,15 +13,13 @@
     --green: #1D9E75; --gl: #4DD4A0; --gd: #0d2e22;
     --red: #c0392b; --rl: #e87060; --rd: #2e0d0d;
     --blue: #5B9BD5; --r: 8px; --rl2: 12px;
-    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Segoe UI', sans-serif;
   }
   body { background: #111110; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 2rem 1rem 4rem; font-family: var(--font); }
   h1 { font-size: 12px; color: #555; letter-spacing: 0.06em; margin-bottom: 0.75rem; font-weight: 400; text-transform: uppercase; }
-  .lang-toggle { display: flex; gap: 0; border: 1px solid var(--b2); border-radius: 8px; overflow: hidden; margin-bottom: 1.25rem; }
+  .lang-toggle { display: flex; border: 1px solid var(--b2); border-radius: 8px; overflow: hidden; margin-bottom: 1.25rem; }
   .lang-btn { padding: 5px 16px; font-size: 12px; cursor: pointer; background: transparent; color: var(--t2); font-family: var(--font); border: none; }
   .lang-btn.active { background: var(--b2); color: var(--t1); font-weight: 500; }
-
-  /* ── Phone frame ── */
   .phone { width: 320px; border: 1.5px solid var(--b1); border-radius: 32px; overflow: hidden; background: var(--bg1); box-shadow: 0 12px 40px rgba(0,0,0,0.6); }
   .phone-bar { background: var(--bg2); padding: 10px 16px 0; border-bottom: 0.5px solid var(--b3); }
   .phone-title-row { display: flex; justify-content: space-between; align-items: center; padding-bottom: 8px; }
@@ -29,34 +27,24 @@
   .inner-tabs { display: flex; }
   .inner-tab { flex: 1; text-align: center; padding: 7px 0; font-size: 13px; color: var(--t2); cursor: pointer; border-bottom: 2px solid transparent; }
   .inner-tab.active { color: var(--t1); font-weight: 500; border-bottom: 2px solid var(--green); }
-  /* phone-body: fixed height, clips everything inside */
   .phone-body { height: 590px; overflow: hidden; position: relative; background: var(--bg1); }
-  /* screens: absolute, fill phone-body exactly, scroll internally */
   .screen { display: none; position: absolute; inset: 0; overflow-y: auto; overflow-x: hidden; }
   .screen.active { display: block; }
-
-  /* ── Discuss feed ── */
   .discuss-top-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-bottom: 0.5px solid var(--b3); }
   .discuss-week { font-size: 11px; color: var(--t3); }
   .post-poll-btn { font-size: 11px; font-weight: 500; color: var(--gl); background: var(--gd); border: 0.5px solid var(--green); padding: 4px 10px; border-radius: 12px; cursor: pointer; }
   .disc-section-label { padding: 10px 12px 4px; font-size: 10px; color: var(--t3); letter-spacing: 0.06em; font-weight: 500; }
-
-  /* ── Official pinned card ── */
   .official-pin-card { margin: 8px 12px; padding: 14px; border-radius: var(--rl2); border: 1px solid rgba(91,155,213,0.35); background: var(--bg2); }
   .official-eyebrow { font-size: 10px; color: var(--blue); font-weight: 500; letter-spacing: 0.04em; }
   .official-timer { font-size: 10px; color: var(--t3); margin-left: 6px; }
   .official-q-text { font-size: 14px; font-weight: 500; color: var(--t1); line-height: 1.4; margin: 6px 0 10px; }
   .pin-submit { margin-top: 10px; padding: 9px; border-radius: var(--r); background: var(--blue); color: white; font-size: 13px; font-weight: 500; cursor: pointer; text-align: center; }
-
-  /* ── Multi-choice options ── */
   .mc-opts { display: flex; flex-direction: column; gap: 7px; }
   .mc-opt { padding: 10px 12px; border-radius: var(--r); border: 1px solid var(--b2); font-size: 13px; color: var(--t1); cursor: pointer; background: var(--bg1); display: flex; align-items: center; gap: 10px; user-select: none; }
   .mc-opt.selected { border-color: var(--green); background: var(--gd); color: var(--gl); }
   .mc-check { width: 15px; height: 15px; border-radius: 50%; border: 1.5px solid var(--b2); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 9px; }
   .mc-opt.selected .mc-check { background: var(--green); border-color: var(--green); color: white; }
   .mc-submit { margin-top: 12px; padding: 10px; border-radius: var(--r); background: var(--green); color: white; font-size: 13px; font-weight: 500; cursor: pointer; text-align: center; }
-
-  /* ── MC result bars ── */
   .mc-bar-row { margin-bottom: 7px; }
   .mc-bar-label-row { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 3px; }
   .mc-bar-label { color: var(--t1); }
@@ -65,11 +53,7 @@
   .mc-bar-track { height: 7px; border-radius: 4px; background: var(--b3); overflow: hidden; }
   .mc-bar-fill { height: 100%; border-radius: 4px; background: var(--b2); }
   .mc-bar-fill.is-you { background: var(--green); }
-
-  /* ── Post-vote CTA ── */
   .post-vote-cta { margin-top: 10px; padding: 9px 12px; border-radius: var(--r); background: var(--bg3); border: 0.5px solid var(--b2); font-size: 13px; font-weight: 500; color: var(--t1); cursor: pointer; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px; }
-
-  /* ── Player poll cards ── */
   .player-poll-card { margin: 8px 12px; padding: 12px 14px; border-radius: var(--rl2); border: 0.5px solid var(--b2); background: var(--bg2); cursor: pointer; }
   .player-poll-card.closed-card { opacity: 0.7; }
   .player-poll-label { font-size: 9px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 4px; }
@@ -89,8 +73,6 @@
   .card-voted-pill { display: inline-block; font-size: 9px; padding: 1px 7px; border-radius: 10px; font-weight: 500; margin-bottom: 6px; }
   .card-voted-pill.yes { background: var(--green); color: white; }
   .card-voted-pill.no { background: var(--red); color: white; }
-
-  /* ── Custom poll options ── */
   .cp-opts { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
   .cp-opt-btn { padding: 8px 12px; border-radius: var(--r); border: 1px solid var(--b2); font-size: 12px; color: var(--t1); cursor: pointer; background: var(--bg1); user-select: none; }
   .cp-bars { margin-top: 8px; display: flex; flex-direction: column; gap: 7px; }
@@ -99,8 +81,6 @@
   .cp-bar-pct { color: var(--t2); }
   .cp-bar-track { height: 6px; border-radius: 3px; background: var(--b3); overflow: hidden; }
   .cp-bar-fill { height: 100%; border-radius: 3px; background: var(--b2); transition: width 0.4s; }
-
-  /* ── Detail screens ── */
   .detail-back { padding: 10px 14px; font-size: 12px; color: var(--blue); cursor: pointer; border-bottom: 0.5px solid var(--b3); }
   .detail-q-card { margin: 10px 12px; padding: 14px; border-radius: var(--rl2); border: 0.5px solid var(--b2); background: var(--bg2); }
   .detail-q-text { font-size: 14px; font-weight: 500; color: var(--t1); line-height: 1.4; margin-bottom: 10px; }
@@ -122,8 +102,6 @@
   .q-btn { flex: 1; padding: 9px; border-radius: var(--r); font-size: 13px; font-weight: 500; cursor: pointer; text-align: center; border: 1px solid; user-select: none; }
   .yes-btn { border-color: var(--green); color: var(--gl); background: var(--gd); }
   .no-btn { border-color: var(--red); color: var(--rl); background: var(--rd); }
-
-  /* ── Comments ── */
   .comment-row { padding: 10px 14px; border-bottom: 0.5px solid var(--b3); display: flex; gap: 10px; align-items: flex-start; }
   .avatar { width: 26px; height: 26px; border-radius: 50%; background: var(--bg2); border: 0.5px solid var(--b2); display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--t2); flex-shrink: 0; font-weight: 500; }
   .avatar.me { background: var(--green); color: white; border-color: var(--green); }
@@ -137,8 +115,6 @@
   .cvb.cup { color: var(--gl); border-color: var(--green); background: var(--gd); }
   .cvb.cdn { color: var(--rl); border-color: var(--red); background: var(--rd); }
   .cvscore { font-size: 11px; font-weight: 500; color: var(--t1); min-width: 18px; text-align: center; }
-
-  /* ── Wishes ── */
   .sort-row { display: flex; gap: 6px; padding: 8px 12px; border-bottom: 0.5px solid var(--b3); overflow-x: auto; position: sticky; top: 0; background: var(--bg1); z-index: 5; }
   .sort-chip { white-space: nowrap; padding: 3px 10px; border-radius: 12px; font-size: 11px; border: 0.5px solid var(--b2); color: var(--t2); cursor: pointer; background: var(--bg1); }
   .sort-chip.active { background: var(--green); color: white; border-color: var(--green); }
@@ -160,8 +136,6 @@
   .wish-poster { font-size: 10px; color: var(--t3); }
   .join-btn { margin-top: 6px; display: inline-flex; align-items: center; font-size: 10px; padding: 3px 8px; border-radius: 10px; border: 0.5px solid var(--green); cursor: pointer; background: var(--gd); color: var(--gl); font-weight: 500; }
   .fab-real { position: absolute; bottom: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; line-height: 1; cursor: pointer; z-index: 10; }
-
-  /* ── Compose ── */
   .compose-overlay { position: absolute; inset: 0; background: var(--bg1); z-index: 20; display: none; flex-direction: column; padding: 16px; }
   .compose-overlay.open { display: flex; }
   .compose-title { font-size: 15px; font-weight: 500; color: var(--t1); margin-bottom: 12px; }
@@ -180,8 +154,6 @@
   .compose-btn-row { display: flex; gap: 8px; margin-top: auto; }
   .compose-cancel { flex: 1; padding: 10px; border-radius: var(--r); border: 0.5px solid var(--b2); font-size: 13px; cursor: pointer; background: var(--bg1); color: var(--t2); text-align: center; }
   .compose-submit { flex: 2; padding: 10px; border-radius: var(--r); background: var(--green); color: white; font-size: 13px; font-weight: 500; cursor: pointer; text-align: center; border: none; }
-
-  /* ── Poll compose ── */
   .poll-opt-row { display: flex; align-items: center; gap: 6px; margin-bottom: 7px; }
   .poll-opt-input { flex: 1; background: var(--bg2); border: 0.5px solid var(--b2); border-radius: var(--r); padding: 9px 10px; font-size: 13px; color: var(--t1); font-family: var(--font); outline: none; }
   .poll-opt-input::placeholder { color: var(--t3); }
@@ -199,245 +171,234 @@
 
 <div class="phone">
   <div class="phone-bar">
-    <div class="phone-title-row">
-      <span class="phone-title">许愿墙</span>
-    </div>
+    <div class="phone-title-row"><span class="phone-title">许愿墙</span></div>
     <div class="inner-tabs">
-      <div class="inner-tab active" id="tab-discuss" onclick="switchTab('discuss')">Discuss</div>
-      <div class="inner-tab" id="tab-wishes" onclick="switchTab('wishes')">Wishes</div>
+      <div class="inner-tab active" id="tab-discuss" onclick="switchTab('discuss')" data-zh="讨论">Discuss</div>
+      <div class="inner-tab" id="tab-wishes" onclick="switchTab('wishes')" data-zh="许愿">Wishes</div>
     </div>
   </div>
 
   <div class="phone-body">
 
-    <!-- ══ DISCUSS ══ -->
+    <!-- DISCUSS -->
     <div class="screen active" id="screen-discuss">
       <div class="discuss-top-row">
-        <span class="discuss-week">Week of 17 Mar</span>
-        <div class="post-poll-btn" onclick="openPollCompose()">+ Post a poll</div>
+        <span class="discuss-week" data-zh="3月17日那周">Week of 17 Mar</span>
+        <div class="post-poll-btn" onclick="openPollCompose()" data-zh="+ 发起投票">+ Post a poll</div>
       </div>
-
-      <!-- Official pinned card -->
       <div class="official-pin-card" onclick="openOfficialDetail()">
-        <div class="official-eyebrow">✦ OFFICIAL · ICEBREAKER<span class="official-timer">5 days left · 1,243 voted</span></div>
-        <div class="official-q-text">After a bad beat, what do you usually do first?</div>
+        <div class="official-eyebrow" data-zh="✦ 官方 · 破冰话题">✦ OFFICIAL · ICEBREAKER<span class="official-timer" data-zh="剩余5天 · 1,243人已投">5 days left · 1,243 voted</span></div>
+        <div class="official-q-text" data-zh="遭遇坏牌时，你通常第一件事是？">After a bad beat, what do you usually do first?</div>
         <div id="pin-pre-vote">
           <div class="mc-opts">
-            <div class="mc-opt" id="pin-mc-0" onclick="selectPinOpt(event,0)"><span class="mc-check" id="pin-mcc-0"></span>Vent to friends at the table</div>
-            <div class="mc-opt" id="pin-mc-1" onclick="selectPinOpt(event,1)"><span class="mc-check" id="pin-mcc-1"></span>Take a short break, then come back</div>
-            <div class="mc-opt" id="pin-mc-2" onclick="selectPinOpt(event,2)"><span class="mc-check" id="pin-mcc-2"></span>Re-buy and go again immediately</div>
-            <div class="mc-opt" id="pin-mc-3" onclick="selectPinOpt(event,3)"><span class="mc-check" id="pin-mcc-3"></span>Close the app — done for the night</div>
+            <div class="mc-opt" id="pin-mc-0" onclick="selectPinOpt(event,0)"><span class="mc-check"></span><span data-zh="跟桌上的朋友吐槽">Vent to friends at the table</span></div>
+            <div class="mc-opt" id="pin-mc-1" onclick="selectPinOpt(event,1)"><span class="mc-check"></span><span data-zh="短暂休息，然后继续">Take a short break, then come back</span></div>
+            <div class="mc-opt" id="pin-mc-2" onclick="selectPinOpt(event,2)"><span class="mc-check"></span><span data-zh="立刻重新买入继续打">Re-buy and go again immediately</span></div>
+            <div class="mc-opt" id="pin-mc-3" onclick="selectPinOpt(event,3)"><span class="mc-check"></span><span data-zh="关掉App，今晚到此为止">Close the app — done for the night</span></div>
           </div>
-          <div class="pin-submit" id="pin-submit" onclick="submitPinMC(event)" style="opacity:0.4;pointer-events:none;">Submit vote</div>
+          <div class="pin-submit" id="pin-submit" onclick="submitPinMC(event)" style="opacity:0.4;pointer-events:none;" data-zh="提交投票">Submit vote</div>
         </div>
         <div id="pin-post-vote" style="display:none;">
           <div id="pin-bars"></div>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;flex-wrap:wrap;gap:4px;">
-            <span class="voted-pill yes" id="pin-voted-pill">You chose: —</span>
-            <div class="club-line" style="margin-top:0;">In your club, <span id="pin-club-stat">most players</span> picked the same</div>
+            <span class="voted-pill yes" id="pin-voted-pill"></span>
+            <div class="club-line" style="margin-top:0;"><span id="pin-club-stat"></span></div>
           </div>
-          <div class="post-vote-cta" onclick="openOfficialDetail()">See what others say ›</div>
+          <div class="post-vote-cta" onclick="openOfficialDetail()" data-zh="看看大家怎么说 ›">See what others say ›</div>
         </div>
       </div>
-
-      <div class="disc-section-label">COMMUNITY POLLS</div>
-
+      <div class="disc-section-label" data-zh="社区投票">COMMUNITY POLLS</div>
       <div id="disc-community-polls">
         <div class="player-poll-card" id="card-history" onclick="openPlayerDetail('history',false)">
-          <div class="player-poll-label live">🔥 LIVE · ends in 4 days</div>
-          <div class="player-poll-q">Add hand history replay so players can review their sessions</div>
-          <div id="card-history-btns"><div class="card-btn-row"><div class="card-q-btn yes" onclick="voteCard(event,'history','yes')">Yes, I'd want this</div><div class="card-q-btn no" onclick="voteCard(event,'history','no')">No thanks</div></div></div>
-          <div id="card-history-result" style="display:none;"><div class="player-poll-meter"><div class="ppm-yes" style="width:71%">71%</div><div class="ppm-no">29%</div></div><span class="card-voted-pill yes" id="card-history-pill">You voted Yes</span></div>
-          <div id="card-history-cta" class="post-vote-cta" style="display:none;" onclick="event.stopPropagation();openPlayerDetail('history',false)">Join the discussion ›</div>
-          <div class="player-poll-meta" style="margin-top:6px;"><span>PokerKing88 · 142 voted</span></div>
+          <div class="player-poll-label live" data-zh="🔥 进行中 · 4天后截止">🔥 LIVE · ends in 4 days</div>
+          <div class="player-poll-q" data-zh="添加牌局回放功能，让玩家能复盘">Add hand history replay so players can review their sessions</div>
+          <div id="card-history-btns"><div class="card-btn-row"><div class="card-q-btn yes" onclick="voteCard(event,'history','yes')" data-zh="听起来有用">Sounds useful</div><div class="card-q-btn no" onclick="voteCard(event,'history','no')" data-zh="不太适合我">Not really for me</div></div></div>
+          <div id="card-history-result" style="display:none;"><div class="player-poll-meter"><div class="ppm-yes" style="width:71%">71%</div><div class="ppm-no">29%</div></div><span class="card-voted-pill yes" id="card-history-pill"></span></div>
+          <div id="card-history-cta" class="post-vote-cta" style="display:none;" onclick="event.stopPropagation();openPlayerDetail('history',false)" data-zh="加入讨论 ›">Join the discussion ›</div>
+          <div class="player-poll-meta" style="margin-top:6px;"><span data-zh="PokerKing88 · 142人已投">PokerKing88 · 142 voted</span></div>
         </div>
         <div class="player-poll-card" id="card-darkmode" onclick="openPlayerDetail('darkmode',false)">
-          <div class="player-poll-label live">🔥 LIVE · ends in 6 days</div>
-          <div class="player-poll-q">Dark mode for late night sessions</div>
-          <div id="card-darkmode-btns"><div class="card-btn-row"><div class="card-q-btn yes" onclick="voteCard(event,'darkmode','yes')">Yes, I'd want this</div><div class="card-q-btn no" onclick="voteCard(event,'darkmode','no')">No thanks</div></div></div>
-          <div id="card-darkmode-result" style="display:none;"><div class="player-poll-meter"><div class="ppm-yes" style="width:83%">83%</div><div class="ppm-no">17%</div></div><span class="card-voted-pill yes" id="card-darkmode-pill">You voted Yes</span></div>
-          <div id="card-darkmode-cta" class="post-vote-cta" style="display:none;" onclick="event.stopPropagation();openPlayerDetail('darkmode',false)">Join the discussion ›</div>
-          <div class="player-poll-meta" style="margin-top:6px;"><span>NightOwl · 98 voted</span></div>
+          <div class="player-poll-label live" data-zh="🔥 进行中 · 6天后截止">🔥 LIVE · ends in 6 days</div>
+          <div class="player-poll-q" data-zh="深色模式，适合深夜打牌">Dark mode for late night sessions</div>
+          <div id="card-darkmode-btns"><div class="card-btn-row"><div class="card-q-btn yes" onclick="voteCard(event,'darkmode','yes')" data-zh="听起来有用">Sounds useful</div><div class="card-q-btn no" onclick="voteCard(event,'darkmode','no')" data-zh="不太适合我">Not really for me</div></div></div>
+          <div id="card-darkmode-result" style="display:none;"><div class="player-poll-meter"><div class="ppm-yes" style="width:83%">83%</div><div class="ppm-no">17%</div></div><span class="card-voted-pill yes" id="card-darkmode-pill"></span></div>
+          <div id="card-darkmode-cta" class="post-vote-cta" style="display:none;" onclick="event.stopPropagation();openPlayerDetail('darkmode',false)" data-zh="加入讨论 ›">Join the discussion ›</div>
+          <div class="player-poll-meta" style="margin-top:6px;"><span data-zh="NightOwl · 98人已投">NightOwl · 98 voted</span></div>
         </div>
         <div class="player-poll-card closed-card" onclick="openPlayerDetail('sounds',false)">
-          <div class="player-poll-label closed-lbl">CLOSED · ended 3 days ago</div>
-          <div class="player-poll-q">Better sound effects at the table</div>
+          <div class="player-poll-label closed-lbl" data-zh="已结束 · 3天前">CLOSED · ended 3 days ago</div>
+          <div class="player-poll-q" data-zh="更好的桌面音效">Better sound effects at the table</div>
           <div class="player-poll-meter"><div class="ppm-yes" style="width:44%">44%</div><div class="ppm-no">56%</div></div>
-          <div class="player-poll-meta"><span>SoundGuy · 67 voted</span><span class="closed-badge">Closed</span></div>
+          <div class="player-poll-meta"><span data-zh="SoundGuy · 67人已投">SoundGuy · 67 voted</span><span class="closed-badge" data-zh="已结束">Closed</span></div>
         </div>
-        <!-- Closed official past questions as cards -->
         <div class="player-poll-card closed-card" onclick="openPastDetail('rebuy')">
-          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="player-poll-label closed-lbl" style="margin-bottom:0;">CLOSED · 2 weeks ago</span><span class="official-badge">✦ OFFICIAL</span></div>
-          <div class="player-poll-q">Should we add a rebuy option to tournaments?</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="player-poll-label closed-lbl" style="margin-bottom:0;" data-zh="已结束 · 2周前">CLOSED · 2 weeks ago</span><span class="official-badge" data-zh="✦ 官方">✦ OFFICIAL</span></div>
+          <div class="player-poll-q" data-zh="锦标赛是否应增加重购选项？">Should we add a rebuy option to tournaments?</div>
           <div class="player-poll-meter"><div class="ppm-yes" style="width:71%">71%</div><div class="ppm-no">29%</div></div>
-          <div class="player-poll-meta"><span>2,341 voted</span><span class="closed-badge">Closed</span></div>
+          <div class="player-poll-meta"><span data-zh="2,341人已投">2,341 voted</span><span class="closed-badge" data-zh="已结束">Closed</span></div>
         </div>
         <div class="player-poll-card closed-card" onclick="openPastDetail('dark')">
-          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="player-poll-label closed-lbl" style="margin-bottom:0;">CLOSED · 1 month ago</span><span class="official-badge">✦ OFFICIAL</span></div>
-          <div class="player-poll-q">Would you use a dark mode?</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="player-poll-label closed-lbl" style="margin-bottom:0;" data-zh="已结束 · 1个月前">CLOSED · 1 month ago</span><span class="official-badge" data-zh="✦ 官方">✦ OFFICIAL</span></div>
+          <div class="player-poll-q" data-zh="你会使用深色模式吗？">Would you use a dark mode?</div>
           <div class="player-poll-meter"><div class="ppm-yes" style="width:58%">58%</div><div class="ppm-no">42%</div></div>
-          <div class="player-poll-meta"><span>1,890 voted</span><span class="closed-badge">Closed</span></div>
+          <div class="player-poll-meta"><span data-zh="1,890人已投">1,890 voted</span><span class="closed-badge" data-zh="已结束">Closed</span></div>
         </div>
         <div class="player-poll-card closed-card" onclick="openPastDetail('timer')">
-          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="player-poll-label closed-lbl" style="margin-bottom:0;">CLOSED · 6 weeks ago</span><span class="official-badge">✦ OFFICIAL</span></div>
-          <div class="player-poll-q">Should turn timer be adjustable per club?</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="player-poll-label closed-lbl" style="margin-bottom:0;" data-zh="已结束 · 6周前">CLOSED · 6 weeks ago</span><span class="official-badge" data-zh="✦ 官方">✦ OFFICIAL</span></div>
+          <div class="player-poll-q" data-zh="操作计时器是否应支持俱乐部自定义？">Should turn timer be adjustable per club?</div>
           <div class="player-poll-meter"><div class="ppm-yes" style="width:49%">49%</div><div class="ppm-no">51%</div></div>
-          <div class="player-poll-meta"><span>1,654 voted</span><span class="closed-badge">Closed</span></div>
+          <div class="player-poll-meta"><span data-zh="1,654人已投">1,654 voted</span><span class="closed-badge" data-zh="已结束">Closed</span></div>
         </div>
       </div>
       <div style="height:60px;"></div>
     </div>
 
-    <!-- ══ PAST DETAIL ══ -->
+    <!-- PAST DETAIL -->
     <div class="screen" id="screen-past-detail">
-      <div class="detail-back" onclick="showScreen('screen-discuss')">‹ Back</div>
+      <div class="detail-back" onclick="showScreen('screen-discuss')" data-zh="‹ 返回">‹ Back</div>
       <div class="detail-q-card">
-        <div class="q-eyebrow">✦ OFFICIAL · CLOSED</div>
+        <div class="q-eyebrow" data-zh="✦ 官方 · 已结束">✦ OFFICIAL · CLOSED</div>
         <div class="detail-q-text" id="detail-q-text"></div>
         <div class="meter-row"><div class="meter-yes" id="detail-yes-bar" style="width:71%">71%</div><div class="meter-no" id="detail-no-bar">29%</div></div>
         <div class="detail-meta" id="detail-meta"></div>
       </div>
-      <div class="divider-label">DISCUSSION</div>
+      <div class="divider-label" data-zh="讨论">DISCUSSION</div>
       <div id="past-comments">
-        <div class="comment-row"><div class="avatar">AH</div><div style="flex:1"><div class="comment-text">Rebuys keep the game going longer — more fun for everyone</div><div class="comment-meta">AceHigh · 2h ago</div><div class="c-vote-row"><span class="cvb" id="cvb-pa1-up" onclick="toggleCVote('pa1','up')">▲</span><span class="cvscore" id="cvs-pa1">22</span><span class="cvb" id="cvb-pa1-dn" onclick="toggleCVote('pa1','dn')">▼</span></div></div></div>
-        <div class="comment-row"><div class="avatar">RR</div><div style="flex:1"><div class="comment-text">Rebuys favour wealthier players. Keeps it fair without them</div><div class="comment-meta">RiverRat · 4h ago</div><div class="c-vote-row"><span class="cvb" id="cvb-pa2-up" onclick="toggleCVote('pa2','up')">▲</span><span class="cvscore" id="cvs-pa2">11</span><span class="cvb" id="cvb-pa2-dn" onclick="toggleCVote('pa2','dn')">▼</span></div></div></div>
+        <div class="comment-row"><div class="avatar">AH</div><div style="flex:1"><div class="comment-text" data-zh="重购让游戏持续更久——对大家都更好玩">Rebuys keep the game going longer — more fun for everyone</div><div class="comment-meta" data-zh="AceHigh · 2小时前">AceHigh · 2h ago</div><div class="c-vote-row"><span class="cvb" id="cvb-pa1-up" onclick="toggleCVote('pa1','up')">▲</span><span class="cvscore" id="cvs-pa1">22</span><span class="cvb" id="cvb-pa1-dn" onclick="toggleCVote('pa1','dn')">▼</span></div></div></div>
+        <div class="comment-row"><div class="avatar">RR</div><div style="flex:1"><div class="comment-text" data-zh="重购对有钱的玩家更有利，没有会更公平">Rebuys favour wealthier players. Keeps it fair without them</div><div class="comment-meta" data-zh="RiverRat · 4小时前">RiverRat · 4h ago</div><div class="c-vote-row"><span class="cvb" id="cvb-pa2-up" onclick="toggleCVote('pa2','up')">▲</span><span class="cvscore" id="cvs-pa2">11</span><span class="cvb" id="cvb-pa2-dn" onclick="toggleCVote('pa2','dn')">▼</span></div></div></div>
       </div>
-      <div class="add-comment-link enabled" onclick="openCompose('past')">+ Add a comment</div>
+      <div class="add-comment-link enabled" onclick="openCompose('past')" data-zh="+ 发表评论">+ Add a comment</div>
       <div style="height:60px;"></div>
     </div>
 
-    <!-- ══ PLAYER DETAIL ══ -->
+    <!-- PLAYER DETAIL -->
     <div class="screen" id="screen-player-detail">
-      <div class="detail-back" onclick="goBackFromPlayer()">‹ Back</div>
+      <div class="detail-back" onclick="goBackFromPlayer()" data-zh="‹ 返回">‹ Back</div>
       <div class="detail-q-card">
         <div class="player-poll-label" id="pd-label">🔥 LIVE</div>
         <div class="detail-q-text" id="pd-q-text"></div>
-        <div id="pd-vote-btns"><div class="q-btn-row" style="margin-bottom:8px;"><div class="q-btn yes-btn" onclick="votePoll('yes')">Yes, I'd want this</div><div class="q-btn no-btn" onclick="votePoll('no')">No thanks</div></div></div>
-        <div id="pd-result" style="display:none;"><div class="meter-row" style="margin-bottom:8px;"><div class="meter-yes" id="pd-yes-bar" style="width:71%">71%</div><div class="meter-no" id="pd-no-bar">29%</div></div><span class="voted-pill yes" id="pd-voted-pill">You voted Yes</span></div>
+        <div id="pd-vote-btns"><div class="q-btn-row" style="margin-bottom:8px;"><div class="q-btn yes-btn" onclick="votePoll('yes')" data-zh="听起来有用">Sounds useful</div><div class="q-btn no-btn" onclick="votePoll('no')" data-zh="不太适合我">Not really for me</div></div></div>
+        <div id="pd-result" style="display:none;"><div class="meter-row" style="margin-bottom:8px;"><div class="meter-yes" id="pd-yes-bar" style="width:71%">71%</div><div class="meter-no" id="pd-no-bar">29%</div></div><span class="voted-pill yes" id="pd-voted-pill"></span></div>
         <div class="detail-meta" id="pd-meta"></div>
       </div>
-      <div class="divider-label">COMMENTS</div>
+      <div class="divider-label" data-zh="评论">COMMENTS</div>
       <div id="player-comments">
-        <div class="comment-row"><div class="avatar">SD</div><div style="flex:1"><div class="comment-text"><span class="stance yes">[Yes]</span>Even just the last 10 hands would help so much</div><div class="comment-meta">ShortDeck · 1h ago</div><div class="c-vote-row"><span class="cvb" id="cvb-pl1-up" onclick="toggleCVote('pl1','up')">▲</span><span class="cvscore" id="cvs-pl1">9</span><span class="cvb" id="cvb-pl1-dn" onclick="toggleCVote('pl1','dn')">▼</span></div></div></div>
-        <div class="comment-row"><div class="avatar">FF</div><div style="flex:1"><div class="comment-text"><span class="stance no">[No]</span>This would slow the app down, not worth it</div><div class="comment-meta">FoldFold · 3h ago</div><div class="c-vote-row"><span class="cvb" id="cvb-pl2-up" onclick="toggleCVote('pl2','up')">▲</span><span class="cvscore" id="cvs-pl2">4</span><span class="cvb" id="cvb-pl2-dn" onclick="toggleCVote('pl2','dn')">▼</span></div></div></div>
+        <div class="comment-row"><div class="avatar">SD</div><div style="flex:1"><div class="comment-text"><span class="stance yes" data-zh="[听起来有用]">[Sounds useful]</span><span data-zh="哪怕只回放最后10手牌也会很有帮助">Even just the last 10 hands would help so much</span></div><div class="comment-meta" data-zh="ShortDeck · 1小时前">ShortDeck · 1h ago</div><div class="c-vote-row"><span class="cvb" id="cvb-pl1-up" onclick="toggleCVote('pl1','up')">▲</span><span class="cvscore" id="cvs-pl1">9</span><span class="cvb" id="cvb-pl1-dn" onclick="toggleCVote('pl1','dn')">▼</span></div></div></div>
+        <div class="comment-row"><div class="avatar">FF</div><div style="flex:1"><div class="comment-text"><span class="stance no" data-zh="[不太适合我]">[Not really for me]</span><span data-zh="这会让App变慢，不值得">This would slow the app down, not worth it</span></div><div class="comment-meta" data-zh="FoldFold · 3小时前">FoldFold · 3h ago</div><div class="c-vote-row"><span class="cvb" id="cvb-pl2-up" onclick="toggleCVote('pl2','up')">▲</span><span class="cvscore" id="cvs-pl2">4</span><span class="cvb" id="cvb-pl2-dn" onclick="toggleCVote('pl2','dn')">▼</span></div></div></div>
       </div>
-      <div class="add-comment-link enabled" onclick="openCompose('player')">+ Add a comment</div>
+      <div class="add-comment-link enabled" id="player-comment-link" onclick="openCompose('player')" data-zh="+ 发表评论">+ Add a comment</div>
       <div style="height:60px;"></div>
     </div>
 
-    <!-- ══ OFFICIAL DETAIL ══ -->
+    <!-- OFFICIAL DETAIL -->
     <div class="screen" id="screen-official-detail">
-      <div class="detail-back" onclick="showScreen('screen-discuss')">‹ Back</div>
+      <div class="detail-back" onclick="showScreen('screen-discuss')" data-zh="‹ 返回">‹ Back</div>
       <div class="detail-q-card">
-        <div class="q-eyebrow">✦ OFFICIAL · ICEBREAKER</div>
-        <div class="detail-q-text">After a bad beat, what do you usually do first?</div>
+        <div class="q-eyebrow" data-zh="✦ 官方 · 破冰话题">✦ OFFICIAL · ICEBREAKER</div>
+        <div class="detail-q-text" data-zh="遭遇坏牌时，你通常第一件事是？">After a bad beat, what do you usually do first?</div>
         <div id="od-pre-vote">
           <div class="mc-opts" style="margin-top:8px;">
-            <div class="mc-opt" id="od-mc-0" onclick="selectODOpt(0)"><span class="mc-check" id="od-mcc-0"></span>Vent to friends at the table</div>
-            <div class="mc-opt" id="od-mc-1" onclick="selectODOpt(1)"><span class="mc-check" id="od-mcc-1"></span>Take a short break, then come back</div>
-            <div class="mc-opt" id="od-mc-2" onclick="selectODOpt(2)"><span class="mc-check" id="od-mcc-2"></span>Re-buy and go again immediately</div>
-            <div class="mc-opt" id="od-mc-3" onclick="selectODOpt(3)"><span class="mc-check" id="od-mcc-3"></span>Close the app — done for the night</div>
+            <div class="mc-opt" id="od-mc-0" onclick="selectODOpt(0)"><span class="mc-check"></span><span data-zh="跟桌上的朋友吐槽">Vent to friends at the table</span></div>
+            <div class="mc-opt" id="od-mc-1" onclick="selectODOpt(1)"><span class="mc-check"></span><span data-zh="短暂休息，然后继续">Take a short break, then come back</span></div>
+            <div class="mc-opt" id="od-mc-2" onclick="selectODOpt(2)"><span class="mc-check"></span><span data-zh="立刻重新买入继续打">Re-buy and go again immediately</span></div>
+            <div class="mc-opt" id="od-mc-3" onclick="selectODOpt(3)"><span class="mc-check"></span><span data-zh="关掉App，今晚到此为止">Close the app — done for the night</span></div>
           </div>
-          <div class="mc-submit" id="od-submit" onclick="submitODMC()" style="opacity:0.4;pointer-events:none;margin-top:10px;">Submit vote</div>
+          <div class="mc-submit" id="od-submit" onclick="submitODMC()" style="opacity:0.4;pointer-events:none;margin-top:10px;" data-zh="提交投票">Submit vote</div>
         </div>
         <div id="od-voted" style="display:none;">
           <div id="od-bars" style="margin-top:8px;"></div>
-          <span class="voted-pill yes" id="od-voted-pill" style="display:inline-block;margin-top:8px;">You chose: —</span>
-          <div class="club-line" style="margin-top:6px;">In your club, <span id="od-club-stat">most players</span> picked the same</div>
+          <span class="voted-pill yes" id="od-voted-pill" style="display:inline-block;margin-top:8px;"></span>
+          <div class="club-line" style="margin-top:6px;"><span id="od-club-stat"></span></div>
         </div>
-        <div style="font-size:10px;color:var(--t3);margin-top:6px;">Refreshes in 5 days</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:6px;" data-zh="5天后刷新">Refreshes in 5 days</div>
       </div>
-      <div class="divider-label">TOP COMMENTS</div>
+      <div class="divider-label" data-zh="精选评论">TOP COMMENTS</div>
       <div id="official-comments">
-        <div class="comment-row"><div class="avatar">AH</div><div style="flex:1"><div class="comment-text">Table banter after a bad beat is half the fun honestly</div><div class="comment-meta">AceHigh · Just now</div><div class="c-vote-row"><span class="cvb" id="cvb-oc1-up" onclick="toggleCVote('oc1','up')">▲</span><span class="cvscore" id="cvs-oc1">14</span><span class="cvb" id="cvb-oc1-dn" onclick="toggleCVote('oc1','dn')">▼</span></div></div></div>
-        <div class="comment-row"><div class="avatar">RR</div><div style="flex:1"><div class="comment-text">Walk away every time. Tilt is real, don't fight it</div><div class="comment-meta">RiverRat · 2h ago</div><div class="c-vote-row"><span class="cvb" id="cvb-oc2-up" onclick="toggleCVote('oc2','up')">▲</span><span class="cvscore" id="cvs-oc2">8</span><span class="cvb" id="cvb-oc2-dn" onclick="toggleCVote('oc2','dn')">▼</span></div></div></div>
-        <div class="comment-row"><div class="avatar">PK</div><div style="flex:1"><div class="comment-text">You have to get it back the same session or it haunts you</div><div class="comment-meta">PokerKing88 · 3h ago</div><div class="c-vote-row"><span class="cvb" id="cvb-oc3-up" onclick="toggleCVote('oc3','up')">▲</span><span class="cvscore" id="cvs-oc3">5</span><span class="cvb" id="cvb-oc3-dn" onclick="toggleCVote('oc3','dn')">▼</span></div></div></div>
+        <div class="comment-row"><div class="avatar">AH</div><div style="flex:1"><div class="comment-text" data-zh="坏牌之后桌上的吐槽，说真的也是乐趣的一半">Table banter after a bad beat is half the fun honestly</div><div class="comment-meta" data-zh="AceHigh · 刚刚">AceHigh · Just now</div><div class="c-vote-row"><span class="cvb" id="cvb-oc1-up" onclick="toggleCVote('oc1','up')">▲</span><span class="cvscore" id="cvs-oc1">14</span><span class="cvb" id="cvb-oc1-dn" onclick="toggleCVote('oc1','dn')">▼</span></div></div></div>
+        <div class="comment-row"><div class="avatar">RR</div><div style="flex:1"><div class="comment-text" data-zh="每次都选择离开。倾斜是真实的，别硬撑">Walk away every time. Tilt is real, don't fight it</div><div class="comment-meta" data-zh="RiverRat · 2小时前">RiverRat · 2h ago</div><div class="c-vote-row"><span class="cvb" id="cvb-oc2-up" onclick="toggleCVote('oc2','up')">▲</span><span class="cvscore" id="cvs-oc2">8</span><span class="cvb" id="cvb-oc2-dn" onclick="toggleCVote('oc2','dn')">▼</span></div></div></div>
+        <div class="comment-row"><div class="avatar">PK</div><div style="flex:1"><div class="comment-text" data-zh="同一局里必须赢回来，否则会一直困扰你">You have to get it back the same session or it haunts you</div><div class="comment-meta" data-zh="PokerKing88 · 3小时前">PokerKing88 · 3h ago</div><div class="c-vote-row"><span class="cvb" id="cvb-oc3-up" onclick="toggleCVote('oc3','up')">▲</span><span class="cvscore" id="cvs-oc3">5</span><span class="cvb" id="cvb-oc3-dn" onclick="toggleCVote('oc3','dn')">▼</span></div></div></div>
       </div>
       <div class="add-comment-link disabled" id="official-comment-link" onclick="openCompose('official')">Vote to join the discussion</div>
       <div style="height:60px;"></div>
     </div>
 
-    <!-- ══ WISHES ══ -->
+    <!-- WISHES -->
     <div class="screen" id="screen-wishes">
       <div class="sort-row">
-        <div class="sort-chip active" onclick="showFilter('all',this)">Top</div>
-        <div class="sort-chip" onclick="showFilter('all',this)">New</div>
-        <div class="sort-chip" onclick="showFilter('all',this)">UI</div>
-        <div class="sort-chip" onclick="showFilter('all',this)">Features</div>
-        <div class="sort-chip" onclick="showFilter('mine',this)">Mine</div>
+        <div class="sort-chip active" onclick="showFilter('all',this)" data-zh="热门">Top</div>
+        <div class="sort-chip" onclick="showFilter('all',this)" data-zh="最新">New</div>
+        <div class="sort-chip" onclick="showFilter('all',this)" data-zh="界面">UI</div>
+        <div class="sort-chip" onclick="showFilter('all',this)" data-zh="功能">Features</div>
+        <div class="sort-chip" onclick="showFilter('mine',this)" data-zh="我的">Mine</div>
       </div>
       <div id="wish-all">
-        <div class="wish-card"><div class="vote-col"><div class="vb up" onclick="toggleVote(1,'up')">▲</div><div class="vscore" id="sc1">84</div><div class="vb" onclick="toggleVote(1,'dn')">▼</div></div><div class="wish-body"><div class="wish-q">Add hand history replay so I can review my sessions</div><div class="wish-meta-row"><span class="tag">Features</span><span class="status hot">🔥 In discussion</span><span class="wish-poster">PokerKing88</span></div><div class="join-btn" onclick="joinDiscussion()">Join the discussion ›</div></div></div>
-        <div class="wish-card"><div class="vote-col"><div class="vb" onclick="toggleVote(2,'up')">▲</div><div class="vscore" id="sc2">61</div><div class="vb" onclick="toggleVote(2,'dn')">▼</div></div><div class="wish-body"><div class="wish-q">Please give us a dark mode — late night games are brutal</div><div class="wish-meta-row"><span class="tag">UI</span><span class="status new">New</span><span class="wish-poster">NightOwl</span></div></div></div>
-        <div class="wish-card"><div class="vote-col"><div class="vb" onclick="toggleVote(3,'up')">▲</div><div class="vscore" id="sc3">45</div><div class="vb" onclick="toggleVote(3,'dn')">▼</div></div><div class="wish-body"><div class="wish-q">Push notification when it's my turn — I keep missing it</div><div class="wish-meta-row"><span class="tag">Features</span><span class="status built">🎉 We built this!</span><span class="wish-poster">SlowRoller</span></div></div></div>
-        <div class="wish-card"><div class="vote-col"><div class="vb" onclick="toggleVote(4,'up')">▲</div><div class="vscore" id="sc4">28</div><div class="vb" onclick="toggleVote(4,'dn')">▼</div></div><div class="wish-body"><div class="wish-q">Stats summary at end of each session — wins, losses, big pots</div><div class="wish-meta-row"><span class="tag">Features</span><span class="status saw">👀 We saw this</span><span class="wish-poster">DataDonkey</span></div></div></div>
-        <div class="wish-card"><div class="vote-col"><div class="vb" onclick="toggleVote(5,'up')">▲</div><div class="vscore" id="sc5">19</div><div class="vb" onclick="toggleVote(5,'dn')">▼</div></div><div class="wish-body"><div class="wish-q">Let us customise the table felt colour — green is boring</div><div class="wish-meta-row"><span class="tag">UI</span><span class="status new">New</span><span class="wish-poster">TableTuner</span></div></div></div>
-        <div id="new-wishes-list"></div>
-        <div style="height:60px;"></div>
+        <div class="wish-card"><div class="vote-col"><div class="vb up" onclick="toggleVote(1,'up')">▲</div><div class="vscore" id="sc1">84</div><div class="vb" onclick="toggleVote(1,'dn')">▼</div></div><div class="wish-body"><div class="wish-q" data-zh="添加牌局回放功能，方便我复盘">Add hand history replay so I can review my sessions</div><div class="wish-meta-row"><span class="tag" data-zh="功能">Features</span><span class="status hot" data-zh="🔥 讨论中">🔥 In discussion</span><span class="wish-poster">PokerKing88</span></div><div class="join-btn" onclick="joinDiscussion()" data-zh="加入讨论 ›">Join the discussion ›</div></div></div>
+        <div class="wish-card"><div class="vote-col"><div class="vb" onclick="toggleVote(2,'up')">▲</div><div class="vscore" id="sc2">61</div><div class="vb" onclick="toggleVote(2,'dn')">▼</div></div><div class="wish-body"><div class="wish-q" data-zh="求深色模式——深夜打牌太伤眼">Please give us a dark mode — late night games are brutal</div><div class="wish-meta-row"><span class="tag" data-zh="界面">UI</span><span class="status new" data-zh="最新">New</span><span class="wish-poster">NightOwl</span></div></div></div>
+        <div class="wish-card"><div class="vote-col"><div class="vb" onclick="toggleVote(3,'up')">▲</div><div class="vscore" id="sc3">45</div><div class="vb" onclick="toggleVote(3,'dn')">▼</div></div><div class="wish-body"><div class="wish-q" data-zh="轮到我出牌时推送通知——我总是错过">Push notification when it's my turn — I keep missing it</div><div class="wish-meta-row"><span class="tag" data-zh="功能">Features</span><span class="status built" data-zh="🎉 已上线！">🎉 We built this!</span><span class="wish-poster">SlowRoller</span></div></div></div>
+        <div class="wish-card"><div class="vote-col"><div class="vb" onclick="toggleVote(4,'up')">▲</div><div class="vscore" id="sc4">28</div><div class="vb" onclick="toggleVote(4,'dn')">▼</div></div><div class="wish-body"><div class="wish-q" data-zh="每局结束后的数据汇总——赢输和大底池">Stats summary at end of each session — wins, losses, big pots</div><div class="wish-meta-row"><span class="tag" data-zh="功能">Features</span><span class="status saw" data-zh="👀 已看到">👀 We saw this</span><span class="wish-poster">DataDonkey</span></div></div></div>
+        <div class="wish-card"><div class="vote-col"><div class="vb" onclick="toggleVote(5,'up')">▲</div><div class="vscore" id="sc5">19</div><div class="vb" onclick="toggleVote(5,'dn')">▼</div></div><div class="wish-body"><div class="wish-q" data-zh="让我们自定义桌布颜色——绿色太单调了">Let us customise the table felt colour — green is boring</div><div class="wish-meta-row"><span class="tag" data-zh="界面">UI</span><span class="status new" data-zh="最新">New</span><span class="wish-poster">TableTuner</span></div></div></div>
+        <div id="new-wishes-list"></div><div style="height:60px;"></div>
       </div>
       <div id="wish-mine" style="display:none;">
-        <div class="wish-card"><div class="vote-col"><div class="vb up">▲</div><div class="vscore">25</div><div class="vb">▼</div></div><div class="wish-body"><div class="wish-q">Stats summary at end of each session — wins, losses, big pots</div><div class="wish-meta-row"><span class="tag">Features</span><span class="status saw">👀 We saw this</span><span class="wish-poster">You · 5 days ago</span></div></div></div>
-        <div class="wish-card"><div class="vote-col"><div class="vb">▲</div><div class="vscore">6</div><div class="vb">▼</div></div><div class="wish-body"><div class="wish-q">Add a quick re-seat button after each game ends</div><div class="wish-meta-row"><span class="tag">Features</span><span class="status new">New</span><span class="wish-poster">You · 2 weeks ago</span></div></div></div>
-        <div id="my-wishes-list"></div>
-        <div style="height:60px;"></div>
+        <div class="wish-card"><div class="vote-col"><div class="vb up">▲</div><div class="vscore">25</div><div class="vb">▼</div></div><div class="wish-body"><div class="wish-q" data-zh="每局结束后的数据汇总——赢输和大底池">Stats summary at end of each session — wins, losses, big pots</div><div class="wish-meta-row"><span class="tag" data-zh="功能">Features</span><span class="status saw" data-zh="👀 已看到">👀 We saw this</span><span class="wish-poster" data-zh="你 · 5天前">You · 5 days ago</span></div></div></div>
+        <div class="wish-card"><div class="vote-col"><div class="vb">▲</div><div class="vscore">6</div><div class="vb">▼</div></div><div class="wish-body"><div class="wish-q" data-zh="每局结束后增加一键重新入座按钮">Add a quick re-seat button after each game ends</div><div class="wish-meta-row"><span class="tag" data-zh="功能">Features</span><span class="status new" data-zh="最新">New</span><span class="wish-poster" data-zh="你 · 2周前">You · 2 weeks ago</span></div></div></div>
+        <div id="my-wishes-list"></div><div style="height:60px;"></div>
       </div>
       <div class="fab-real" onclick="openCompose('wish')">+</div>
     </div>
 
-    <!-- ══ COMPOSE ══ -->
+    <!-- COMPOSE -->
     <div class="compose-overlay" id="compose">
       <div class="compose-title" id="c-title">Post a wish</div>
       <div class="compose-q-preview" id="c-q-preview" style="display:none;"></div>
       <div class="compose-stance-row" id="c-stance-row" style="display:none;">
-        <span class="compose-stance-label">Posting as</span>
+        <span class="compose-stance-label" data-zh="以此立场发表">Posting as</span>
         <span class="stance yes" id="c-stance-badge">[Yes]</span>
       </div>
       <textarea class="compose-input" id="c-input" placeholder="Share your take..." maxlength="120" oninput="updateChar()"></textarea>
       <div class="compose-char"><span id="char-count">0</span>/120</div>
       <div id="tag-section" style="display:none;">
-        <div class="tag-label-c">Tag your wish</div>
+        <div class="tag-label-c" data-zh="给愿望打标签">Tag your wish</div>
         <div class="tag-row-c">
-          <div class="tag-opt" onclick="selectTag(this,'UI')">UI</div>
-          <div class="tag-opt" onclick="selectTag(this,'Features')">Features</div>
-          <div class="tag-opt" onclick="selectTag(this,'Other')">Other</div>
+          <div class="tag-opt" onclick="selectTag(this,'UI')" data-zh="界面">UI</div>
+          <div class="tag-opt" onclick="selectTag(this,'Features')" data-zh="功能">Features</div>
+          <div class="tag-opt" onclick="selectTag(this,'Other')" data-zh="其他">Other</div>
         </div>
-        <div class="compose-promo-hint">
-          <span style="font-size:13px;">💡</span>
-          <div class="compose-promo-hint-text">Wishes that gain enough traction from the community may be featured as a community poll.</div>
-        </div>
+        <div class="compose-promo-hint"><span style="font-size:13px;">💡</span><div class="compose-promo-hint-text" data-zh="获得足够多社区关注的愿望，可能会被推选为社区投票。">Wishes that gain enough traction from the community may be featured as a community poll.</div></div>
       </div>
       <div class="compose-btn-row">
-        <div class="compose-cancel" onclick="closeCompose()">Cancel</div>
-        <div class="compose-submit" onclick="submitPost()">Submit</div>
+        <div class="compose-cancel" onclick="closeCompose()" data-zh="取消">Cancel</div>
+        <div class="compose-submit" onclick="submitPost()" data-zh="提交">Submit</div>
       </div>
     </div>
 
-    <!-- ══ POLL COMPOSE ══ -->
+    <!-- POLL COMPOSE -->
     <div class="compose-overlay" id="poll-compose" style="display:none;flex-direction:column;padding:0;">
       <div style="padding:14px 16px 10px;border-bottom:0.5px solid var(--b3);display:flex;justify-content:space-between;align-items:center;">
-        <div style="font-size:15px;font-weight:500;color:var(--t1);">New poll</div>
-        <div onclick="closePollCompose()" style="font-size:13px;color:var(--blue);cursor:pointer;">Cancel</div>
+        <div style="font-size:15px;font-weight:500;color:var(--t1);" data-zh="新建投票">New poll</div>
+        <div onclick="closePollCompose()" style="font-size:13px;color:var(--blue);cursor:pointer;" data-zh="取消">Cancel</div>
       </div>
       <div style="flex:1;overflow-y:auto;padding:14px 16px;">
-        <div style="font-size:11px;color:var(--t2);margin-bottom:6px;font-weight:500;">YOUR QUESTION</div>
+        <div style="font-size:11px;color:var(--t2);margin-bottom:6px;font-weight:500;" data-zh="你的问题">YOUR QUESTION</div>
         <textarea id="poll-q-input" class="compose-input" placeholder="Ask the community something..." maxlength="100" oninput="updatePollChar()" style="min-height:60px;margin-bottom:4px;"></textarea>
         <div style="font-size:11px;color:var(--t2);text-align:right;margin-bottom:14px;"><span id="poll-q-count">0</span>/100</div>
-        <div style="font-size:11px;color:var(--t2);margin-bottom:8px;font-weight:500;">OPTIONS <span style="color:var(--t3);font-weight:400;">(2–4)</span></div>
+        <div style="font-size:11px;color:var(--t2);margin-bottom:8px;font-weight:500;"><span data-zh="选项">OPTIONS</span> <span style="color:var(--t3);font-weight:400;" data-zh="（2–4个）">(2–4)</span></div>
         <div id="poll-options-list">
           <div class="poll-opt-row"><input class="poll-opt-input" placeholder="Option 1" maxlength="40"><span class="poll-opt-del" style="visibility:hidden;" onclick="removePollOpt(this)">✕</span></div>
           <div class="poll-opt-row"><input class="poll-opt-input" placeholder="Option 2" maxlength="40"><span class="poll-opt-del" style="visibility:hidden;" onclick="removePollOpt(this)">✕</span></div>
         </div>
-        <div id="add-opt-btn" class="add-opt-btn" onclick="addPollOpt()">+ Add option <span style="color:var(--t3);">(up to 4)</span></div>
+        <div id="add-opt-btn" class="add-opt-btn" onclick="addPollOpt()"><span data-zh="+ 添加选项 ">+ Add option </span><span style="color:var(--t3);" data-zh="（最多4个）">(up to 4)</span></div>
       </div>
       <div style="padding:12px 16px;border-top:0.5px solid var(--b3);">
-        <div class="compose-submit" onclick="submitPoll()" style="text-align:center;padding:11px;border-radius:8px;">Post poll</div>
+        <div class="compose-submit" onclick="submitPoll()" style="text-align:center;padding:11px;border-radius:8px;" data-zh="发布投票">Post poll</div>
       </div>
     </div>
 
-  </div><!-- /phone-body -->
-</div><!-- /phone -->
+  </div>
+</div>
 
 <script>
+var currentLang='en';
 var scores={1:84,2:61,3:45,4:28,5:19};
 var vState={};
 var cvScores={oc1:14,oc2:8,oc3:5,pa1:22,pa2:11,pl1:9,pl2:4};
@@ -447,467 +408,235 @@ var officialVoted=false;
 var currentVote=null;
 var pinOptSelected=null;
 var odOptSelected=null;
-var mcLabels=['Vent to friends at the table','Take a short break, then come back','Re-buy and go again immediately','Close the app — done for the night'];
-var mcResults=[38,29,21,12];
 var selectedTag=null;
 var pdVoted=false;
 var playerDetailVote=null;
 var wishCounter=100;
 var cameFromWishes=false;
-var currentQuestion='';
+var currentPollKey='';
+var currentPastKey='';
 var cardVotes={};
 var customPollVotes={};
 
-var pastData={rebuy:{q:'Should we add a rebuy option to tournaments?',yes:71,votes:'2,341'},dark:{q:'Would you use a dark mode?',yes:58,votes:'1,890'},timer:{q:'Should turn timer be adjustable per club?',yes:49,votes:'1,654'}};
-var playerData={history:{q:'Add hand history replay so players can review their sessions',yes:71,votes:142,live:true},darkmode:{q:'Dark mode for late night sessions',yes:83,votes:98,live:true},sounds:{q:'Better sound effects at the table',yes:44,votes:67,live:false}};
+var mcEN=['Vent to friends at the table','Take a short break, then come back','Re-buy and go again immediately','Close the app — done for the night'];
+var mcZH=['跟桌上的朋友吐槽','短暂休息，然后继续','立刻重新买入继续打','关掉App，今晚到此为止'];
+var mcResults=[38,29,21,12];
+var clubEN=['6 out of 10 also picked this','3 out of 10 also picked this','2 out of 10 also picked this','4 out of 10 also picked this'];
+var clubZH=['10人中6人也选了这个','10人中3人也选了这个','10人中2人也选了这个','10人中4人也选了这个'];
+var pdEN={history:{q:'Add hand history replay so players can review their sessions',yes:71,votes:142,live:true,meta:'Posted by PokerKing88 · 142 voted'},darkmode:{q:'Dark mode for late night sessions',yes:83,votes:98,live:true,meta:'Posted by NightOwl · 98 voted'},sounds:{q:'Better sound effects at the table',yes:44,votes:67,live:false,meta:'Posted by SoundGuy · 67 voted'}};
+var pdZH={history:{q:'添加牌局回放功能，让玩家能复盘',yes:71,votes:142,live:true,meta:'PokerKing88 发布 · 142人已投'},darkmode:{q:'深色模式，适合深夜打牌',yes:83,votes:98,live:true,meta:'NightOwl 发布 · 98人已投'},sounds:{q:'更好的桌面音效',yes:44,votes:67,live:false,meta:'SoundGuy 发布 · 67人已投'}};
+var pastEN={rebuy:{q:'Should we add a rebuy option to tournaments?',yes:71,votes:'2,341'},dark:{q:'Would you use a dark mode?',yes:58,votes:'1,890'},timer:{q:'Should turn timer be adjustable per club?',yes:49,votes:'1,654'}};
+var pastZH={rebuy:{q:'锦标赛是否应增加重购选项？',yes:71,votes:'2,341'},dark:{q:'你会使用深色模式吗？',yes:58,votes:'1,890'},timer:{q:'操作计时器是否应支持俱乐部自定义？',yes:49,votes:'1,654'}};
 
-function switchTab(id){
-  ['discuss','wishes'].forEach(function(t){document.getElementById('tab-'+t).classList.toggle('active',t===id);});
-  showScreen('screen-'+id);
-}
-function showScreen(id){
-  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});
-  var el=document.getElementById(id);
-  el.classList.add('active');
-  el.scrollTop=0;
-}
+function mc(i){return currentLang==='zh'?mcZH[i]:mcEN[i];}
+function club(i){return currentLang==='zh'?clubZH[i]:clubEN[i];}
+function getPD(k){return currentLang==='zh'?pdZH[k]:pdEN[k];}
+function getPast(k){return currentLang==='zh'?pastZH[k]:pastEN[k];}
+var DYN={'You chose: ':'你选择了：','You voted Yes':'你投了：听起来有用','You voted No':'你投了：不太适合我','Voting closed':'投票已结束','Vote to join the discussion':'先投票再参与讨论','+ Add a comment':'+ 发表评论','Discussion closed':'讨论已结束','🔥 LIVE':'🔥 进行中','CLOSED':'已结束','Post a wish':'发表愿望','Add a comment':'添加评论','[Yes]':'[赞成]','[No]':'[反对]','You · Just now':'你 · 刚刚','Posting as':'以此立场发表','Sounds useful':'听起来有用','Not really for me':'不太适合我'};
+function t(k){return currentLang==='zh'&&DYN[k]?DYN[k]:k;}
 
-/* Official pin card */
-function selectPinOpt(e,idx){
-  e.stopPropagation();
-  pinOptSelected=idx;
-  for(var i=0;i<4;i++) document.getElementById('pin-mc-'+i).classList.toggle('selected',i===idx);
-  var btn=document.getElementById('pin-submit');btn.style.opacity='1';btn.style.pointerEvents='auto';
-}
-function submitPinMC(e){
-  e.stopPropagation();
-  if(pinOptSelected===null)return;
-  currentVote=pinOptSelected;officialVoted=true;
-  renderPinVoted();
-}
+function switchTab(id){['discuss','wishes'].forEach(function(tab){document.getElementById('tab-'+tab).classList.toggle('active',tab===id);});showScreen('screen-'+id);}
+function showScreen(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});var el=document.getElementById(id);el.classList.add('active');el.scrollTop=0;}
+
+function selectPinOpt(e,idx){e.stopPropagation();pinOptSelected=idx;for(var i=0;i<4;i++)document.getElementById('pin-mc-'+i).classList.toggle('selected',i===idx);var b=document.getElementById('pin-submit');b.style.opacity='1';b.style.pointerEvents='auto';}
+function submitPinMC(e){e.stopPropagation();if(pinOptSelected===null)return;currentVote=pinOptSelected;officialVoted=true;renderPinVoted();}
 function renderPinVoted(){
   document.getElementById('pin-pre-vote').style.display='none';
   document.getElementById('pin-post-vote').style.display='block';
-  document.getElementById('pin-voted-pill').textContent='You chose: '+mcLabels[currentVote];
-  var clubs=['6 out of 10 also','3 out of 10 also','2 out of 10 also','4 out of 10 also'];
-  document.getElementById('pin-club-stat').textContent=clubs[currentVote];
-  var bars=document.getElementById('pin-bars');bars.innerHTML='';
-  for(var i=0;i<4;i++){var p=mcResults[i];var y=i===currentVote;bars.innerHTML+='<div class="mc-bar-row"><div class="mc-bar-label-row"><span class="mc-bar-label'+(y?' is-you':'')+'">'+mcLabels[i]+(y?' ✓':'')+'</span><span class="mc-bar-pct">'+p+'%</span></div><div class="mc-bar-track"><div class="mc-bar-fill'+(y?' is-you':'')+'" style="width:'+p+'%"></div></div></div>';}
+  document.getElementById('pin-voted-pill').textContent=t('You chose: ')+mc(currentVote);
+  document.getElementById('pin-club-stat').textContent=club(currentVote);
+  renderMCBars('pin-bars',currentVote);
+}
+function renderMCBars(cid,chosen){
+  var b=document.getElementById(cid);b.innerHTML='';
+  for(var i=0;i<4;i++){var p=mcResults[i];var y=i===chosen;b.innerHTML+='<div class="mc-bar-row"><div class="mc-bar-label-row"><span class="mc-bar-label'+(y?' is-you':'')+'">'+mc(i)+(y?' ✓':'')+'</span><span class="mc-bar-pct">'+p+'%</span></div><div class="mc-bar-track"><div class="mc-bar-fill'+(y?' is-you':'')+'" style="width:'+p+'%"></div></div></div>';}
 }
 
-/* Official detail */
 function openOfficialDetail(){
+  var lnk=document.getElementById('official-comment-link');
   if(officialVoted){
-    document.getElementById('od-pre-vote').style.display='none';
-    document.getElementById('od-voted').style.display='block';
-    document.getElementById('od-voted-pill').textContent='You chose: '+mcLabels[currentVote];
-    var clubs=['6 out of 10 also','3 out of 10 also','2 out of 10 also','4 out of 10 also'];
-    document.getElementById('od-club-stat').textContent=clubs[currentVote];
-    var bars=document.getElementById('od-bars');bars.innerHTML='';
-    for(var i=0;i<4;i++){var p=mcResults[i];var y=i===currentVote;bars.innerHTML+='<div class="mc-bar-row"><div class="mc-bar-label-row"><span class="mc-bar-label'+(y?' is-you':'')+'">'+mcLabels[i]+(y?' ✓':'')+'</span><span class="mc-bar-pct">'+p+'%</span></div><div class="mc-bar-track"><div class="mc-bar-fill'+(y?' is-you':'')+'" style="width:'+p+'%"></div></div></div>';}
-    var lnk=document.getElementById('official-comment-link');lnk.className='add-comment-link enabled';lnk.textContent='+ Add a comment';
+    document.getElementById('od-pre-vote').style.display='none';document.getElementById('od-voted').style.display='block';
+    document.getElementById('od-voted-pill').textContent=t('You chose: ')+mc(currentVote);
+    document.getElementById('od-club-stat').textContent=club(currentVote);
+    renderMCBars('od-bars',currentVote);
+    lnk.className='add-comment-link enabled';lnk.textContent=t('+ Add a comment');
   } else {
-    document.getElementById('od-pre-vote').style.display='block';
-    document.getElementById('od-voted').style.display='none';
-    odOptSelected=null;
-    for(var i=0;i<4;i++) document.getElementById('od-mc-'+i).classList.remove('selected');
-    var btn=document.getElementById('od-submit');btn.style.opacity='0.4';btn.style.pointerEvents='none';
-    var lnk=document.getElementById('official-comment-link');lnk.className='add-comment-link disabled';lnk.textContent='Vote to join the discussion';
+    document.getElementById('od-pre-vote').style.display='block';document.getElementById('od-voted').style.display='none';
+    odOptSelected=null;for(var i=0;i<4;i++)document.getElementById('od-mc-'+i).classList.remove('selected');
+    var b=document.getElementById('od-submit');b.style.opacity='0.4';b.style.pointerEvents='none';
+    lnk.className='add-comment-link disabled';lnk.textContent=t('Vote to join the discussion');
   }
   showScreen('screen-official-detail');
 }
-function selectODOpt(idx){
-  odOptSelected=idx;
-  for(var i=0;i<4;i++) document.getElementById('od-mc-'+i).classList.toggle('selected',i===idx);
-  var btn=document.getElementById('od-submit');btn.style.opacity='1';btn.style.pointerEvents='auto';
-}
-function submitODMC(){
-  if(odOptSelected===null)return;
-  currentVote=odOptSelected;officialVoted=true;
-  renderPinVoted();
-  openOfficialDetail();
-}
+function selectODOpt(idx){odOptSelected=idx;for(var i=0;i<4;i++)document.getElementById('od-mc-'+i).classList.toggle('selected',i===idx);var b=document.getElementById('od-submit');b.style.opacity='1';b.style.pointerEvents='auto';}
+function submitODMC(){if(odOptSelected===null)return;currentVote=odOptSelected;officialVoted=true;renderPinVoted();openOfficialDetail();}
 
-/* Comment votes */
-function toggleCVote(id,dir){
-  var base=cvScores[id]||0;var cur=cvState[id];
-  var up=document.getElementById('cvb-'+id+'-up');var dn=document.getElementById('cvb-'+id+'-dn');var sc=document.getElementById('cvs-'+id);
-  if(cur===dir){cvState[id]=null;up.className='cvb';dn.className='cvb';sc.textContent=base;}
-  else{cvState[id]=dir;if(dir==='up'){up.className='cvb cup';dn.className='cvb';sc.textContent=base+1;}else{dn.className='cvb cdn';up.className='cvb';sc.textContent=base-1;}}
-}
+function toggleCVote(id,dir){var base=cvScores[id]||0;var cur=cvState[id];var up=document.getElementById('cvb-'+id+'-up');var dn=document.getElementById('cvb-'+id+'-dn');var sc=document.getElementById('cvs-'+id);if(cur===dir){cvState[id]=null;up.className='cvb';dn.className='cvb';sc.textContent=base;}else{cvState[id]=dir;if(dir==='up'){up.className='cvb cup';dn.className='cvb';sc.textContent=base+1;}else{dn.className='cvb cdn';up.className='cvb';sc.textContent=base-1;}}}
 
-/* Player polls */
-function voteCard(e,key,v){
-  e.stopPropagation();if(cardVotes[key])return;cardVotes[key]=v;
-  document.getElementById('card-'+key+'-btns').style.display='none';
-  document.getElementById('card-'+key+'-result').style.display='block';
-  var pill=document.getElementById('card-'+key+'-pill');
-  pill.textContent=v==='yes'?'You voted Yes':'You voted No';pill.className='card-voted-pill '+v;
-  var cta=document.getElementById('card-'+key+'-cta');if(cta)cta.style.display='flex';
-}
+function voteCard(e,key,v){e.stopPropagation();if(cardVotes[key])return;cardVotes[key]=v;document.getElementById('card-'+key+'-btns').style.display='none';document.getElementById('card-'+key+'-result').style.display='block';var pill=document.getElementById('card-'+key+'-pill');pill.textContent=t(v==='yes'?'Sounds useful':'Not really for me');pill.className='card-voted-pill '+v;var cta=document.getElementById('card-'+key+'-cta');if(cta)cta.style.display='flex';}
+
 function openPlayerDetail(key,fromWishes){
-  cameFromWishes=!!fromWishes;var d=playerData[key];currentQuestion=d.q;
-  var already=cardVotes[key];pdVoted=!!already;playerDetailVote=already||null;
-  document.getElementById('pd-label').innerHTML=d.live?'🔥 LIVE':'CLOSED';
+  cameFromWishes=!!fromWishes;currentPollKey=key;
+  var d=getPD(key);var already=cardVotes[key];pdVoted=!!already;playerDetailVote=already||null;
+  document.getElementById('pd-label').textContent=t(d.live?'🔥 LIVE':'CLOSED');
   document.getElementById('pd-label').className='player-poll-label '+(d.live?'live':'closed-lbl');
   document.getElementById('pd-q-text').textContent=d.q;
   document.getElementById('pd-yes-bar').style.width=d.yes+'%';document.getElementById('pd-yes-bar').textContent=d.yes+'%';
   document.getElementById('pd-no-bar').textContent=(100-d.yes)+'%';
-  document.getElementById('pd-meta').textContent='Posted by PokerKing88 · '+d.votes+' voted';
+  document.getElementById('pd-meta').textContent=d.meta;
+  var cl=document.getElementById('player-comment-link');
   if(!d.live){
     document.getElementById('pd-vote-btns').style.display='none';document.getElementById('pd-result').style.display='block';
-    document.getElementById('pd-voted-pill').textContent='Voting closed';document.getElementById('pd-voted-pill').className='voted-pill no';
-    var cl=document.querySelector('#screen-player-detail .add-comment-link');cl.className='add-comment-link disabled';cl.textContent='Discussion closed';cl.onclick=null;
+    document.getElementById('pd-voted-pill').textContent=t('Voting closed');document.getElementById('pd-voted-pill').className='voted-pill no';
+    cl.className='add-comment-link disabled';cl.textContent=t('Discussion closed');cl.onclick=null;
   } else if(already){
     document.getElementById('pd-vote-btns').style.display='none';document.getElementById('pd-result').style.display='block';
-    var pill=document.getElementById('pd-voted-pill');pill.textContent=already==='yes'?'You voted Yes':'You voted No';pill.className='voted-pill '+already;
-    var cl=document.querySelector('#screen-player-detail .add-comment-link');cl.className='add-comment-link enabled';cl.textContent='+ Add a comment';cl.onclick=function(){openCompose('player');};
+    document.getElementById('pd-voted-pill').textContent=t(already==='yes'?'You voted Yes':'You voted No');document.getElementById('pd-voted-pill').className='voted-pill '+already;
+    cl.className='add-comment-link enabled';cl.textContent=t('+ Add a comment');cl.onclick=function(){openCompose('player');};
   } else {
     document.getElementById('pd-vote-btns').style.display='block';document.getElementById('pd-result').style.display='none';
-    var cl=document.querySelector('#screen-player-detail .add-comment-link');cl.className='add-comment-link disabled';cl.textContent='Vote to join the discussion';cl.onclick=null;
+    cl.className='add-comment-link disabled';cl.textContent=t('Vote to join the discussion');cl.onclick=null;
   }
   showScreen('screen-player-detail');
 }
-function goBackFromPlayer(){
-  if(cameFromWishes){document.getElementById('tab-discuss').classList.remove('active');document.getElementById('tab-wishes').classList.add('active');showScreen('screen-wishes');}
-  else showScreen('screen-discuss');
-  cameFromWishes=false;
-}
+function goBackFromPlayer(){if(cameFromWishes){document.getElementById('tab-discuss').classList.remove('active');document.getElementById('tab-wishes').classList.add('active');showScreen('screen-wishes');}else showScreen('screen-discuss');cameFromWishes=false;}
 function votePoll(v){
   if(pdVoted)return;pdVoted=true;playerDetailVote=v;
   document.getElementById('pd-vote-btns').style.display='none';document.getElementById('pd-result').style.display='block';
-  var pill=document.getElementById('pd-voted-pill');pill.textContent=v==='yes'?'You voted Yes':'You voted No';pill.className='voted-pill '+v;
-  var cl=document.querySelector('#screen-player-detail .add-comment-link');cl.className='add-comment-link enabled';cl.textContent='+ Add a comment';cl.onclick=function(){openCompose('player');};
+  document.getElementById('pd-voted-pill').textContent=t(v==='yes'?'Sounds useful':'Not really for me');document.getElementById('pd-voted-pill').className='voted-pill '+v;
+  var cl=document.getElementById('player-comment-link');cl.className='add-comment-link enabled';cl.textContent=t('+ Add a comment');cl.onclick=function(){openCompose('player');};
+  if(currentPollKey){cardVotes[currentPollKey]=v;var cp=document.getElementById('card-'+currentPollKey+'-pill');if(cp){cp.textContent=t(v==='yes'?'Sounds useful':'Not really for me');cp.className='card-voted-pill '+v;}var cb=document.getElementById('card-'+currentPollKey+'-btns');if(cb)cb.style.display='none';var cr=document.getElementById('card-'+currentPollKey+'-result');if(cr)cr.style.display='block';var cta=document.getElementById('card-'+currentPollKey+'-cta');if(cta)cta.style.display='flex';}
 }
 
-/* Past questions */
 function openPastDetail(key){
-  var d=pastData[key];currentQuestion=d.q;
+  currentPastKey=key;var d=getPast(key);
   document.getElementById('detail-q-text').textContent=d.q;
   document.getElementById('detail-yes-bar').style.width=d.yes+'%';document.getElementById('detail-yes-bar').textContent=d.yes+'%';
   document.getElementById('detail-no-bar').textContent=(100-d.yes)+'%';
-  document.getElementById('detail-meta').textContent='Closed · '+d.votes+' players voted';
+  document.getElementById('detail-meta').textContent=(currentLang==='zh'?'已结束 · ':'Closed · ')+d.votes+(currentLang==='zh'?' 人参与':' players voted');
   showScreen('screen-past-detail');
 }
 
-/* Wishes */
-function joinDiscussion(){
-  document.getElementById('tab-discuss').classList.add('active');document.getElementById('tab-wishes').classList.remove('active');
-  openPlayerDetail('history',true);
-}
-function showFilter(type,el){
-  document.querySelectorAll('.sort-chip').forEach(function(c){c.classList.remove('active');});el.classList.add('active');
-  document.getElementById('wish-all').style.display=type==='mine'?'none':'block';
-  document.getElementById('wish-mine').style.display=type==='mine'?'block':'none';
-}
-function toggleVote(id,dir){
-  var sc=document.getElementById('sc'+id);var vbs=sc.parentElement.querySelectorAll('.vb');
-  var up=vbs[0],dn=vbs[1];var base=scores[id],cur=vState[id];
-  if(cur===dir){vState[id]=null;up.className='vb';dn.className='vb';sc.textContent=base;}
-  else{vState[id]=dir;if(dir==='up'){up.className='vb up';dn.className='vb';sc.textContent=base+1;}else{dn.className='vb dn';up.className='vb';sc.textContent=base-1;}}
-}
+function joinDiscussion(){document.getElementById('tab-discuss').classList.add('active');document.getElementById('tab-wishes').classList.remove('active');openPlayerDetail('history',true);}
+function showFilter(type,el){document.querySelectorAll('.sort-chip').forEach(function(c){c.classList.remove('active');});el.classList.add('active');document.getElementById('wish-all').style.display=type==='mine'?'none':'block';document.getElementById('wish-mine').style.display=type==='mine'?'block':'none';}
+function toggleVote(id,dir){var sc=document.getElementById('sc'+id);var vbs=sc.parentElement.querySelectorAll('.vb');var up=vbs[0],dn=vbs[1];var base=scores[id],cur=vState[id];if(cur===dir){vState[id]=null;up.className='vb';dn.className='vb';sc.textContent=base;}else{vState[id]=dir;if(dir==='up'){up.className='vb up';dn.className='vb';sc.textContent=base+1;}else{dn.className='vb dn';up.className='vb';sc.textContent=base-1;}}}
 
-/* Compose */
 function openCompose(mode){
   document.querySelector('.inner-tabs').style.visibility='hidden';
-  currentMode=mode;selectedTag=null;
-  document.querySelectorAll('.tag-opt').forEach(function(t){t.classList.remove('selected');});
-  var titleEl=document.getElementById('c-title'),qPrev=document.getElementById('c-q-preview');
-  var stRow=document.getElementById('c-stance-row'),stBadge=document.getElementById('c-stance-badge');
-  var inp=document.getElementById('c-input'),tagSec=document.getElementById('tag-section');
+  currentMode=mode;selectedTag=null;document.querySelectorAll('.tag-opt').forEach(function(el){el.classList.remove('selected');});
+  var inp=document.getElementById('c-input'),tagSec=document.getElementById('tag-section'),qPrev=document.getElementById('c-q-preview'),stRow=document.getElementById('c-stance-row'),stBadge=document.getElementById('c-stance-badge'),titleEl=document.getElementById('c-title');
+  var isZH=currentLang==='zh';
   if(mode==='wish'){
-    titleEl.textContent='Post a wish';qPrev.style.display='none';stRow.style.display='none';
-    inp.placeholder='e.g. I want hand history replay...';tagSec.style.display='block';
+    titleEl.textContent=t('Post a wish');qPrev.style.display='none';stRow.style.display='none';
+    inp.placeholder=isZH?'例如：我想要牌局回放功能……':'e.g. I want hand history replay...';tagSec.style.display='block';
   } else {
-    titleEl.textContent='Add a comment';tagSec.style.display='none';inp.placeholder='Share your take...';
+    titleEl.textContent=t('Add a comment');tagSec.style.display='none';inp.placeholder=isZH?'说说你的想法……':'Share your take...';
     var q='';
-    if(mode==='official') q='After a bad beat, what do you usually do first?';
-    else if(mode==='player') q=currentQuestion;
-    else if(mode==='past') q=currentQuestion;
+    if(mode==='official') q=isZH?'遭遇坏牌时，你通常第一件事是？':'After a bad beat, what do you usually do first?';
+    else if(mode==='player') q=getPD(currentPollKey).q;
+    else if(mode==='past') q=getPast(currentPastKey).q;
     if(q){qPrev.textContent=q;qPrev.style.display='block';}else qPrev.style.display='none';
-    // stance only for binary (player polls)
     if(mode==='player'&&playerDetailVote){
-      stBadge.textContent='['+(playerDetailVote==='yes'?'Yes':'No')+']';
-      stBadge.className='stance '+(playerDetailVote==='no'?'no':'yes');
-      stRow.style.display='flex';
+      var sv=playerDetailVote;stBadge.textContent='['+(sv==='yes'?(isZH?'听起来有用':'Sounds useful'):(isZH?'不太适合我':'Not really for me'))+']';stBadge.className='stance '+(sv==='no'?'no':'yes');stRow.style.display='flex';
     } else stRow.style.display='none';
   }
-  inp.value='';document.getElementById('char-count').textContent='0';
-  document.getElementById('compose').classList.add('open');
+  inp.value='';document.getElementById('char-count').textContent='0';document.getElementById('compose').classList.add('open');
 }
-function closeCompose(){
-  document.getElementById('compose').classList.remove('open');
-  document.getElementById('c-input').value='';
-  document.getElementById('char-count').textContent='0';
-  document.querySelector('.inner-tabs').style.visibility='visible';
-}
-
+function closeCompose(){document.getElementById('compose').classList.remove('open');document.getElementById('c-input').value='';document.getElementById('char-count').textContent='0';document.querySelector('.inner-tabs').style.visibility='visible';}
 function submitPost(){
-  var text=document.getElementById('c-input').value.trim();if(!text)return;var h=escHtml(text);
+  var text=document.getElementById('c-input').value.trim();if(!text)return;var h=escHtml(text);var isZH=currentLang==='zh';
   if(currentMode==='wish'){
-    var tagName=selectedTag||'Other';var id=++wishCounter;scores[id]=0;vState[id]=null;
-    var makeCard=function(wv){
-      var c=document.createElement('div');c.className='wish-card';
-      var vh=wv?'<div class="vb" onclick="toggleVote('+id+',\'up\')">▲</div><div class="vscore" id="sc'+id+'">0</div><div class="vb" onclick="toggleVote('+id+',\'dn\')">▼</div>':'<div class="vb">▲</div><div class="vscore">0</div><div class="vb">▼</div>';
-      c.innerHTML='<div class="vote-col">'+vh+'</div><div class="wish-body"><div class="wish-q">'+h+'</div><div class="wish-meta-row"><span class="tag">'+escHtml(tagName)+'</span><span class="status new">New</span><span class="wish-poster">You · Just now</span></div></div>';
-      return c;
-    };
-    document.getElementById('new-wishes-list').prepend(makeCard(true));
-    document.getElementById('my-wishes-list').prepend(makeCard(false));
+    var tagName=selectedTag||(isZH?'其他':'Other');var id=++wishCounter;scores[id]=0;vState[id]=null;
+    var makeCard=function(wv){var c=document.createElement('div');c.className='wish-card';var vh=wv?'<div class="vb" onclick="toggleVote('+id+',\'up\')">▲</div><div class="vscore" id="sc'+id+'">0</div><div class="vb" onclick="toggleVote('+id+',\'dn\')">▼</div>':'<div class="vb">▲</div><div class="vscore">0</div><div class="vb">▼</div>';c.innerHTML='<div class="vote-col">'+vh+'</div><div class="wish-body"><div class="wish-q">'+h+'</div><div class="wish-meta-row"><span class="tag">'+escHtml(tagName)+'</span><span class="status new">'+(isZH?'最新':'New')+'</span><span class="wish-poster">'+t('You · Just now')+'</span></div></div>';return c;};
+    document.getElementById('new-wishes-list').prepend(makeCard(true));document.getElementById('my-wishes-list').prepend(makeCard(false));
   } else {
     var stanceHtml='';
-    if(currentMode==='player'&&playerDetailVote){
-      stanceHtml='<span class="stance '+(playerDetailVote==='no'?'no':'yes')+'">['+( playerDetailVote==='yes'?'Yes':'No')+']</span>';
-    }
+    if(currentMode==='player'&&playerDetailVote){var sv=playerDetailVote;stanceHtml='<span class="stance '+(sv==='no'?'no':'yes')+'">['+(sv==='yes'?(isZH?'听起来有用':'Sounds useful'):(isZH?'不太适合我':'Not really for me'))+']</span>';}
     var cvId='nc-'+Date.now();cvScores[cvId]=0;
-    var html='<div class="comment-row"><div class="avatar me">You</div><div style="flex:1"><div class="comment-text">'+stanceHtml+h+'</div><div class="comment-meta">You · Just now</div><div class="c-vote-row"><span class="cvb" id="cvb-'+cvId+'-up" onclick="toggleCVote(\''+cvId+'\',\'up\')">▲</span><span class="cvscore" id="cvs-'+cvId+'">0</span><span class="cvb" id="cvb-'+cvId+'-dn" onclick="toggleCVote(\''+cvId+'\',\'dn\')">▼</span></div></div></div>';
+    var html='<div class="comment-row"><div class="avatar me">'+(isZH?'你':'You')+'</div><div style="flex:1"><div class="comment-text">'+stanceHtml+h+'</div><div class="comment-meta">'+t('You · Just now')+'</div><div class="c-vote-row"><span class="cvb" id="cvb-'+cvId+'-up" onclick="toggleCVote(\''+cvId+'\',\'up\')">▲</span><span class="cvscore" id="cvs-'+cvId+'">0</span><span class="cvb" id="cvb-'+cvId+'-dn" onclick="toggleCVote(\''+cvId+'\',\'dn\')">▼</span></div></div></div>';
     var target=currentMode==='past'?'past-comments':currentMode==='player'?'player-comments':'official-comments';
     document.getElementById(target).insertAdjacentHTML('beforeend',html);
   }
   closeCompose();
 }
 
-/* Poll compose */
 function openPollCompose(){
   document.querySelector('.inner-tabs').style.visibility='hidden';
   document.getElementById('poll-q-input').value='';document.getElementById('poll-q-count').textContent='0';
-  var list=document.getElementById('poll-options-list');
-  list.innerHTML='<div class="poll-opt-row"><input class="poll-opt-input" placeholder="Option 1" maxlength="40"><span class="poll-opt-del" style="visibility:hidden;" onclick="removePollOpt(this)">✕</span></div><div class="poll-opt-row"><input class="poll-opt-input" placeholder="Option 2" maxlength="40"><span class="poll-opt-del" style="visibility:hidden;" onclick="removePollOpt(this)">✕</span></div>';
+  var isZH=currentLang==='zh';var list=document.getElementById('poll-options-list');
+  list.innerHTML='<div class="poll-opt-row"><input class="poll-opt-input" placeholder="'+(isZH?'选项 1':'Option 1')+'" maxlength="40"><span class="poll-opt-del" style="visibility:hidden;" onclick="removePollOpt(this)">✕</span></div><div class="poll-opt-row"><input class="poll-opt-input" placeholder="'+(isZH?'选项 2':'Option 2')+'" maxlength="40"><span class="poll-opt-del" style="visibility:hidden;" onclick="removePollOpt(this)">✕</span></div>';
   document.getElementById('add-opt-btn').style.display='block';
+  document.getElementById('poll-q-input').placeholder=isZH?'问问社区……':'Ask the community something...';
   document.getElementById('poll-compose').style.display='flex';
 }
-function closePollCompose(){
-  document.getElementById('poll-compose').style.display='none';
-  document.querySelector('.inner-tabs').style.visibility='visible';
-}
+function closePollCompose(){document.getElementById('poll-compose').style.display='none';document.querySelector('.inner-tabs').style.visibility='visible';}
 function updatePollChar(){document.getElementById('poll-q-count').textContent=document.getElementById('poll-q-input').value.length;}
-function addPollOpt(){
-  var list=document.getElementById('poll-options-list');var count=list.querySelectorAll('.poll-opt-row').length;
-  if(count>=4){document.getElementById('add-opt-btn').style.display='none';return;}
-  var row=document.createElement('div');row.className='poll-opt-row';
-  row.innerHTML='<input class="poll-opt-input" placeholder="Option '+(count+1)+'" maxlength="40"><span class="poll-opt-del" onclick="removePollOpt(this)">✕</span>';
-  list.appendChild(row);updateDelBtns();
-  if(list.querySelectorAll('.poll-opt-row').length>=4)document.getElementById('add-opt-btn').style.display='none';
-}
-function removePollOpt(el){
-  var list=document.getElementById('poll-options-list');
-  if(list.querySelectorAll('.poll-opt-row').length<=2)return;
-  el.closest('.poll-opt-row').remove();
-  list.querySelectorAll('.poll-opt-input').forEach(function(inp,i){inp.placeholder='Option '+(i+1);});
-  document.getElementById('add-opt-btn').style.display='block';updateDelBtns();
-}
-function updateDelBtns(){
-  var list=document.getElementById('poll-options-list');var rows=list.querySelectorAll('.poll-opt-row');var show=rows.length>2;
-  rows.forEach(function(r){var d=r.querySelector('.poll-opt-del');if(d)d.style.visibility=show?'visible':'hidden';});
-}
+function addPollOpt(){var list=document.getElementById('poll-options-list');var count=list.querySelectorAll('.poll-opt-row').length;if(count>=4){document.getElementById('add-opt-btn').style.display='none';return;}var row=document.createElement('div');row.className='poll-opt-row';row.innerHTML='<input class="poll-opt-input" placeholder="'+(currentLang==='zh'?'选项 '+(count+1):'Option '+(count+1))+'" maxlength="40"><span class="poll-opt-del" onclick="removePollOpt(this)">✕</span>';list.appendChild(row);updateDelBtns();if(list.querySelectorAll('.poll-opt-row').length>=4)document.getElementById('add-opt-btn').style.display='none';}
+function removePollOpt(el){var list=document.getElementById('poll-options-list');if(list.querySelectorAll('.poll-opt-row').length<=2)return;el.closest('.poll-opt-row').remove();list.querySelectorAll('.poll-opt-input').forEach(function(inp,i){inp.placeholder=currentLang==='zh'?('选项 '+(i+1)):('Option '+(i+1));});document.getElementById('add-opt-btn').style.display='block';updateDelBtns();}
+function updateDelBtns(){var list=document.getElementById('poll-options-list');var rows=list.querySelectorAll('.poll-opt-row');var show=rows.length>2;rows.forEach(function(r){var d=r.querySelector('.poll-opt-del');if(d)d.style.visibility=show?'visible':'hidden';});}
 function submitPoll(){
   var q=document.getElementById('poll-q-input').value.trim();if(!q){document.getElementById('poll-q-input').focus();return;}
-  var opts=[];document.querySelectorAll('.poll-opt-input').forEach(function(i){if(i.value.trim())opts.push(i.value.trim());});
-  if(opts.length<2)return;
-  var pid='cp-'+Date.now();customPollVotes[pid]=null;
+  var opts=[];document.querySelectorAll('.poll-opt-input').forEach(function(i){if(i.value.trim())opts.push(i.value.trim());});if(opts.length<2)return;
+  var pid='cp-'+Date.now();customPollVotes[pid]=null;var isZH=currentLang==='zh';
+  var liveLabel=isZH?'🔥 进行中 · 刚发布':'🔥 LIVE · just posted';var youNow=t('You · Just now');var votedTxt=isZH?'0人已投':'0 voted';
   var btns=opts.map(function(o,i){return '<div class="cp-opt-btn" onclick="voteCustomPoll(event,\''+pid+'\','+i+','+opts.length+')">'+escHtml(o)+'</div>';}).join('');
   var bars=opts.map(function(o,i){return '<div class="cp-bar-row"><div class="cp-bar-label-row"><span class="cp-bar-label" id="'+pid+'-bl-'+i+'">'+escHtml(o)+'</span><span class="cp-bar-pct" id="'+pid+'-bp-'+i+'">0%</span></div><div class="cp-bar-track"><div class="cp-bar-fill" id="'+pid+'-bf-'+i+'" style="width:0%"></div></div></div>';}).join('');
   var card=document.createElement('div');card.className='player-poll-card';
-  card.innerHTML='<div class="player-poll-label live">🔥 LIVE · just posted</div><div class="player-poll-q">'+escHtml(q)+'</div><div id="'+pid+'-opts" class="cp-opts">'+btns+'</div><div id="'+pid+'-bars" class="cp-bars" style="display:none;">'+bars+'</div><div class="player-poll-meta" style="margin-top:6px;"><span>You · Just now · 0 voted</span></div>';
-  document.getElementById('disc-community-polls').prepend(card);
-  closePollCompose();
+  card.innerHTML='<div class="player-poll-label live">'+liveLabel+'</div><div class="player-poll-q">'+escHtml(q)+'</div><div id="'+pid+'-opts" class="cp-opts">'+btns+'</div><div id="'+pid+'-bars" class="cp-bars" style="display:none;">'+bars+'</div><div class="player-poll-meta" style="margin-top:6px;"><span>'+youNow+' · '+votedTxt+'</span></div>';
+  document.getElementById('disc-community-polls').prepend(card);closePollCompose();
 }
-function voteCustomPoll(e,pid,idx,total){
-  e.stopPropagation();if(customPollVotes[pid]!==null)return;customPollVotes[pid]=idx;
-  document.getElementById(pid+'-opts').style.display='none';document.getElementById(pid+'-bars').style.display='block';
-  var raw=[],sum=0;
-  for(var i=0;i<total;i++){raw.push(i===idx?40+Math.floor(Math.random()*20):5+Math.floor(Math.random()*20));sum+=raw[i];}
-  for(var i=0;i<total;i++){
-    var p=Math.round(raw[i]/sum*100);var y=i===idx;
-    document.getElementById(pid+'-bf-'+i).style.width=p+'%';
-    if(y){document.getElementById(pid+'-bf-'+i).style.background='var(--green)';document.getElementById(pid+'-bl-'+i).style.color='var(--gl)';document.getElementById(pid+'-bl-'+i).style.fontWeight='500';}
-    document.getElementById(pid+'-bp-'+i).textContent=p+'%';
+function voteCustomPoll(e,pid,idx,total){e.stopPropagation();if(customPollVotes[pid]!==null)return;customPollVotes[pid]=idx;document.getElementById(pid+'-opts').style.display='none';document.getElementById(pid+'-bars').style.display='block';var raw=[],sum=0;for(var i=0;i<total;i++){raw.push(i===idx?40+Math.floor(Math.random()*20):5+Math.floor(Math.random()*20));sum+=raw[i];}for(var i=0;i<total;i++){var p=Math.round(raw[i]/sum*100);var y=i===idx;document.getElementById(pid+'-bf-'+i).style.width=p+'%';if(y){document.getElementById(pid+'-bf-'+i).style.background='var(--green)';document.getElementById(pid+'-bl-'+i).style.color='var(--gl)';document.getElementById(pid+'-bl-'+i).style.fontWeight='500';}document.getElementById(pid+'-bp-'+i).textContent=p+'%';}}
+
+function setLang(lang){
+  currentLang=lang;
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  document.getElementById('btn-zh').classList.toggle('active',lang==='zh');
+  /* Swap all data-zh elements */
+  document.querySelectorAll('[data-zh]').forEach(function(el){
+    var zh=el.getAttribute('data-zh');
+    if(!el.getAttribute('data-en'))el.setAttribute('data-en',el.textContent.trim());
+    el.textContent=lang==='zh'?zh:el.getAttribute('data-en');
+  });
+  /* Update placeholders */
+  document.getElementById('c-input').placeholder=lang==='zh'?'说说你的想法……':'Share your take...';
+  document.getElementById('poll-q-input').placeholder=lang==='zh'?'问问社区……':'Ask the community something...';
+  document.querySelectorAll('.poll-opt-input').forEach(function(el,i){el.placeholder=lang==='zh'?('选项 '+(i+1)):('Option '+(i+1));});
+  /* Re-render dynamic content */
+  if(officialVoted){
+    renderPinVoted();
+    document.getElementById('od-voted-pill').textContent=t('You chose: ')+mc(currentVote);
+    document.getElementById('od-club-stat').textContent=club(currentVote);
+    renderMCBars('od-bars',currentVote);
+    document.getElementById('official-comment-link').textContent=t('+ Add a comment');
+  } else {
+    document.getElementById('official-comment-link').textContent=t('Vote to join the discussion');
+  }
+  /* Re-render card vote pills */
+  Object.keys(cardVotes).forEach(function(key){var v=cardVotes[key];var pill=document.getElementById('card-'+key+'-pill');if(pill)pill.textContent=t(v==='yes'?'Sounds useful':'Not really for me');});
+  /* Re-render player detail if active */
+  if(currentPollKey&&document.getElementById('screen-player-detail').classList.contains('active')){
+    var d=getPD(currentPollKey);
+    document.getElementById('pd-q-text').textContent=d.q;
+    document.getElementById('pd-meta').textContent=d.meta;
+    document.getElementById('pd-label').textContent=t(pdEN[currentPollKey].live?'🔥 LIVE':'CLOSED');
+    var cl=document.getElementById('player-comment-link');
+    if(cl.className.indexOf('enabled')>=0) cl.textContent=t('+ Add a comment');
+    else if(!pdEN[currentPollKey].live) cl.textContent=t('Discussion closed');
+    else cl.textContent=t('Vote to join the discussion');
+    if(pdVoted&&playerDetailVote) document.getElementById('pd-voted-pill').textContent=t(playerDetailVote==='yes'?'You voted Yes':'You voted No');
+    else if(pdVoted) document.getElementById('pd-voted-pill').textContent=t('Voting closed');
+  }
+  /* Re-render past detail if active */
+  if(currentPastKey&&document.getElementById('screen-past-detail').classList.contains('active')){
+    var d=getPast(currentPastKey);
+    document.getElementById('detail-q-text').textContent=d.q;
+    document.getElementById('detail-meta').textContent=(lang==='zh'?'已结束 · ':'Closed · ')+d.votes+(lang==='zh'?' 人参与':' players voted');
   }
 }
 
 function escHtml(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function updateChar(){document.getElementById('char-count').textContent=document.getElementById('c-input').value.length;}
 function selectTag(el,name){document.querySelectorAll('.tag-opt').forEach(function(t){t.classList.remove('selected');});el.classList.add('selected');selectedTag=name;}
-
-/* ── Language toggle ── */
-var currentLang='en';
-var T={
-  // Nav
-  'Discuss':          '讨论',
-  'Wishes':           '许愿',
-  // Discuss feed
-  'Week of 17 Mar':   '3月17日那周',
-  '+ Post a poll':    '+ 发起投票',
-  'COMMUNITY POLLS':  '社区投票',
-  // Official card
-  '✦ OFFICIAL · ICEBREAKER': '✦ 官方 · 破冰话题',
-  '5 days left · 1,243 voted': '剩余5天 · 1,243人已投票',
-  'After a bad beat, what do you usually do first?': '遭遇坏牌时，你通常第一件事是？',
-  'Vent to friends at the table':        '跟桌上的朋友吐槽',
-  'Take a short break, then come back':  '短暂休息，然后继续',
-  'Re-buy and go again immediately':     '立刻重新买入继续打',
-  'Close the app — done for the night':  '关掉App，今晚到此为止',
-  'Submit vote':      '提交投票',
-  'You chose: ':      '你选择了：',
-  'In your club, ':   '在你的俱乐部，',
-  ' picked the same': '选了一样的',
-  'See what others say ›': '看看大家怎么说 ›',
-  '6 out of 10 also': '10人中6人也',
-  '3 out of 10 also': '10人中3人也',
-  '2 out of 10 also': '10人中2人也',
-  '4 out of 10 also': '10人中4人也',
-  // Community poll cards
-  '🔥 LIVE · ends in 4 days': '🔥 进行中 · 4天后截止',
-  '🔥 LIVE · ends in 6 days': '🔥 进行中 · 6天后截止',
-  'Add hand history replay so players can review their sessions': '添加牌局回放功能，让玩家能复盘',
-  "Yes, I'd want this": '是，我想要',
-  'No thanks':         '不需要',
-  'You voted Yes':     '你投了：是',
-  'You voted No':      '你投了：否',
-  'Join the discussion ›': '加入讨论 ›',
-  'PokerKing88 · 142 voted': 'PokerKing88 · 142人已投',
-  '🔥 LIVE · just posted': '🔥 进行中 · 刚发布',
-  'Dark mode for late night sessions': '深色模式，适合深夜打牌',
-  'NightOwl · 98 voted': 'NightOwl · 98人已投',
-  'CLOSED · ended 3 days ago': '已结束 · 3天前',
-  'Better sound effects at the table': '更好的桌面音效',
-  'SoundGuy · 67 voted': 'SoundGuy · 67人已投',
-  'Closed': '已结束',
-  // Closed official cards
-  'CLOSED · 2 weeks ago': '已结束 · 2周前',
-  'CLOSED · 1 month ago': '已结束 · 1个月前',
-  'CLOSED · 6 weeks ago': '已结束 · 6周前',
-  '✦ OFFICIAL': '✦ 官方',
-  'Should we add a rebuy option to tournaments?': '锦标赛是否应增加重购选项？',
-  '2,341 voted': '2,341人已投',
-  'Would you use a dark mode?': '你会使用深色模式吗？',
-  '1,890 voted': '1,890人已投',
-  'Should turn timer be adjustable per club?': '操作计时器是否应支持俱乐部自定义？',
-  '1,654 voted': '1,654人已投',
-  // Past detail screen
-  '✦ OFFICIAL · CLOSED': '✦ 官方 · 已结束',
-  'DISCUSSION': '讨论',
-  // Player detail screen
-  '🔥 LIVE': '🔥 进行中',
-  'CLOSED': '已结束',
-  'Posted by PokerKing88 · 142 voted': 'PokerKing88 发布 · 142人已投',
-  'Posted by PokerKing88 · 98 voted':  'PokerKing88 发布 · 98人已投',
-  'Posted by PokerKing88 · 67 voted':  'PokerKing88 发布 · 67人已投',
-  'Voting closed': '投票已结束',
-  'COMMENTS': '评论',
-  // Official detail
-  '✦ OFFICIAL · ICEBREAKER': '✦ 官方 · 破冰话题',
-  'TOP COMMENTS': '精选评论',
-  'Vote to join the discussion': '先投票再参与讨论',
-  '+ Add a comment': '+ 发表评论',
-  'Discussion closed': '讨论已结束',
-  'Refreshes in 5 days': '5天后刷新',
-  // Comments
-  'AceHigh · Just now': 'AceHigh · 刚刚',
-  'RiverRat · 2h ago':  'RiverRat · 2小时前',
-  'PokerKing88 · 3h ago': 'PokerKing88 · 3小时前',
-  'AceHigh · 2h ago': 'AceHigh · 2小时前',
-  'RiverRat · 4h ago': 'RiverRat · 4小时前',
-  'ShortDeck · 1h ago': 'ShortDeck · 1小时前',
-  'FoldFold · 3h ago': 'FoldFold · 3小时前',
-  'Table banter after a bad beat is half the fun honestly': '坏牌之后桌上的吐槽，说真的也是乐趣的一半',
-  'Walk away every time. Tilt is real, don\'t fight it': '每次都选择离开。倾斜是真实的，别硬撑',
-  'You have to get it back the same session or it haunts you': '同一局里必须赢回来，否则会一直困扰你',
-  'Rebuys keep the game going longer — more fun for everyone': '重购让游戏持续更久——对大家都更好玩',
-  'Rebuys favour wealthier players. Keeps it fair without them': '重购对有钱的玩家更有利，没有会更公平',
-  'Even just the last 10 hands would help so much': '哪怕只回放最后10手牌也会很有帮助',
-  'This would slow the app down, not worth it': '这会让App变慢，不值得',
-  '[Yes]': '[赞成]',
-  '[No]':  '[反对]',
-  // Wishes tab
-  'Top': '热门', 'New': '最新', 'UI': '界面', 'Features': '功能', 'Mine': '我的',
-  'Add hand history replay so I can review my sessions': '添加牌局回放功能，方便我复盘',
-  '🔥 In discussion': '🔥 讨论中',
-  'PokerKing88': 'PokerKing88',
-  'Please give us a dark mode — late night games are brutal': '求深色模式——深夜打牌太伤眼',
-  'NightOwl': 'NightOwl',
-  'Push notification when it\'s my turn — I keep missing it': '轮到我出牌时推送通知——我总是错过',
-  '🎉 We built this!': '🎉 已上线！',
-  'SlowRoller': 'SlowRoller',
-  'Stats summary at end of each session — wins, losses, big pots': '每局结束后的数据汇总——赢输和大底池',
-  '👀 We saw this': '👀 已看到',
-  'DataDonkey': 'DataDonkey',
-  'Let us customise the table felt colour — green is boring': '让我们自定义桌布颜色——绿色太单调了',
-  'TableTuner': 'TableTuner',
-  'Join the discussion ›': '加入讨论 ›',
-  'You · 5 days ago': '你 · 5天前',
-  'You · 2 weeks ago': '你 · 2周前',
-  'Add a quick re-seat button after each game ends': '每局结束后增加一键重新入座按钮',
-  // Compose
-  'Post a wish': '发表愿望',
-  'Add a comment': '发表评论',
-  'e.g. I want hand history replay...': '例如：我想要牌局回放功能……',
-  'Share your take...': '说说你的想法……',
-  'Tag your wish': '给愿望打标签',
-  'Wishes that gain enough traction from the community may be featured as a community poll.': '获得足够多社区关注的愿望，可能会被推选为社区投票。',
-  'Cancel': '取消',
-  'Submit': '提交',
-  // Poll compose
-  'New poll': '新建投票',
-  'YOUR QUESTION': '你的问题',
-  'Ask the community something...': '问问社区……',
-  'OPTIONS': '选项',
-  '(2–4)': '（2–4个）',
-  'Option 1': '选项 1', 'Option 2': '选项 2', 'Option 3': '选项 3', 'Option 4': '选项 4',
-  '+ Add option ': '+ 添加选项 ',
-  '(up to 4)': '（最多4个）',
-  'Polls that get strong traction may be featured as an official question.': '获得广泛关注的投票可能会被选为官方问题。',
-  'Post poll': '发布投票',
-  // Misc
-  'Best viewed on mobile': '建议在手机端查看',
-  'You · Just now': '你 · 刚刚',
-  'New': '最新', 'Other': '其他',
-  // Back buttons
-  '‹ Back': '‹ 返回',
-  // Closed official card detail meta
-  'Closed · 2,341 players voted': '已结束 · 2,341人参与',
-  'Closed · 1,890 players voted': '已结束 · 1,890人参与',
-  'Closed · 1,654 players voted': '已结束 · 1,654人参与',
-};
-
-function setLang(lang){
-  currentLang=lang;
-  document.getElementById('btn-en').classList.toggle('active',lang==='en');
-  document.getElementById('btn-zh').classList.toggle('active',lang==='zh');
-  // Walk all text nodes and translate
-  translateNode(document.body,lang==='zh'?'zh':'en');
-  // Also update placeholders
-  translateAttrs(lang);
-}
-
-function translateNode(node,dir){
-  if(node.nodeType===3){
-    var t=node.textContent;
-    if(dir==='zh'){
-      for(var k in T){if(t.trim()===k){node.textContent=t.replace(k,T[k]);return;}}
-    } else {
-      for(var k in T){if(t.trim()===T[k]){node.textContent=t.replace(T[k],k);return;}}
-    }
-    return;
-  }
-  // Don't recurse into scripts/styles
-  if(node.nodeName==='SCRIPT'||node.nodeName==='STYLE')return;
-  node.childNodes.forEach(function(c){translateNode(c,dir);});
-}
-
-function translateAttrs(dir){
-  var placeholderMap={
-    'c-input':      dir==='zh'?'例如：我想要牌局回放功能……':'e.g. I want hand history replay...',
-    'poll-q-input': dir==='zh'?'问问社区……':'Ask the community something...',
-  };
-  for(var id in placeholderMap){
-    var el=document.getElementById(id);if(el)el.placeholder=placeholderMap[id];
-  }
-  // Option placeholders
-  document.querySelectorAll('.poll-opt-input').forEach(function(el,i){
-    el.placeholder=dir==='zh'?('选项 '+(i+1)):('Option '+(i+1));
-  });
-}
 </script>
 </body>
 </html>
