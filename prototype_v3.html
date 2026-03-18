@@ -428,9 +428,6 @@
           <div class="poll-opt-row"><input class="poll-opt-input" placeholder="Option 2" maxlength="40"><span class="poll-opt-del" style="visibility:hidden;" onclick="removePollOpt(this)">✕</span></div>
         </div>
         <div id="add-opt-btn" class="add-opt-btn" onclick="addPollOpt()">+ Add option <span style="color:var(--t3);">(up to 4)</span></div>
-        <div style="margin-top:14px;padding:10px 12px;border-radius:8px;background:var(--bg2);border:0.5px solid var(--b3);">
-          <div style="font-size:10px;color:var(--t3);line-height:1.6;">Polls that get strong traction may be featured as an official question.</div>
-        </div>
       </div>
       <div style="padding:12px 16px;border-top:0.5px solid var(--b3);">
         <div class="compose-submit" onclick="submitPoll()" style="text-align:center;padding:11px;border-radius:8px;">Post poll</div>
@@ -612,6 +609,7 @@ function toggleVote(id,dir){
 
 /* Compose */
 function openCompose(mode){
+  document.querySelector('.inner-tabs').style.visibility='hidden';
   currentMode=mode;selectedTag=null;
   document.querySelectorAll('.tag-opt').forEach(function(t){t.classList.remove('selected');});
   var titleEl=document.getElementById('c-title'),qPrev=document.getElementById('c-q-preview');
@@ -637,7 +635,12 @@ function openCompose(mode){
   inp.value='';document.getElementById('char-count').textContent='0';
   document.getElementById('compose').classList.add('open');
 }
-function closeCompose(){document.getElementById('compose').classList.remove('open');document.getElementById('c-input').value='';document.getElementById('char-count').textContent='0';}
+function closeCompose(){
+  document.getElementById('compose').classList.remove('open');
+  document.getElementById('c-input').value='';
+  document.getElementById('char-count').textContent='0';
+  document.querySelector('.inner-tabs').style.visibility='visible';
+}
 
 function submitPost(){
   var text=document.getElementById('c-input').value.trim();if(!text)return;var h=escHtml(text);
@@ -666,13 +669,17 @@ function submitPost(){
 
 /* Poll compose */
 function openPollCompose(){
+  document.querySelector('.inner-tabs').style.visibility='hidden';
   document.getElementById('poll-q-input').value='';document.getElementById('poll-q-count').textContent='0';
   var list=document.getElementById('poll-options-list');
   list.innerHTML='<div class="poll-opt-row"><input class="poll-opt-input" placeholder="Option 1" maxlength="40"><span class="poll-opt-del" style="visibility:hidden;" onclick="removePollOpt(this)">✕</span></div><div class="poll-opt-row"><input class="poll-opt-input" placeholder="Option 2" maxlength="40"><span class="poll-opt-del" style="visibility:hidden;" onclick="removePollOpt(this)">✕</span></div>';
   document.getElementById('add-opt-btn').style.display='block';
   document.getElementById('poll-compose').style.display='flex';
 }
-function closePollCompose(){document.getElementById('poll-compose').style.display='none';}
+function closePollCompose(){
+  document.getElementById('poll-compose').style.display='none';
+  document.querySelector('.inner-tabs').style.visibility='visible';
+}
 function updatePollChar(){document.getElementById('poll-q-count').textContent=document.getElementById('poll-q-input').value.length;}
 function addPollOpt(){
   var list=document.getElementById('poll-options-list');var count=list.querySelectorAll('.poll-opt-row').length;
